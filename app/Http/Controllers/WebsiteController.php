@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Website;
+use App\Models\Website;
 use App\Mail\PaymentReminder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
