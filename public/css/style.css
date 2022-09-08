@@ -1,0 +1,151 @@
+@import url(https://fonts.googleapis.com/css?family=Allerta+Stencil|Artifika|Cinzel+Decorative|Fanwood+Text|Fredericka+the+Great|Fugaz+One|Germania+One|Graduate|Grand+Hotel|IM+Fell+Double+Pica|Montserrat|Slabo+27px|Source+Sans+Pro|Rosarivo);
+
+html, body, header {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+body {
+    margin: 0 auto;
+}
+
+h5 {
+    letter-spacing: 3px;
+}
+
+button:focus {
+    outline:0 !important;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.wow {
+    visibility: hidden;
+}
+
+.coolText1{
+    font-family: 'Fredericka the Great', cursive;
+}
+
+.coolText2{
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.coolText3{
+    font-family: 'Allerta Stencil', cursive;
+}
+
+.coolText4{
+    font-family: 'Fanwood Text', cursive;
+}
+
+.coolText5{
+    font-family: 'Germania One', cursive;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+#container_start {
+    margin-top: 5em;
+}
+
+.alert {
+    z-index: 10000;
+    right: 10px;
+    top: 10px;
+    position: fixed;
+    color: black;
+}
+
+/*Navigation*/
+nav {
+    margin: 0px -15px;
+}
+a.navbar-brand {
+    padding: 15px 35px 15px 20px;
+}
+
+.adminNavColor {
+    background: cornflowerblue;
+}
+
+.top-nav-collapse {
+    background-color: #3f51b5!important;
+}
+
+.navbar.navbar-dark .navbar-nav .nav-item .nav-link, .navbar.navbar-dark .navbar-nav .nav-item .nav-link:hover {
+    color: black;
+}
+
+.top-nav-collapse.navbar.navbar-dark .navbar-nav .nav-item .nav-link:hover, .top-nav-collapse.navbar.navbar-dark .navbar-nav .nav-item .nav-link {
+    color: whitesmoke;
+}
+
+/*Extra small devices (portrait phones, less than 576px)*/
+/*No media query since this is the default in Bootstrap*/
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .price_inclusions_list ul {
+        width: 50% !important;
+    }
+
+    #pricing_component .row div {
+        max-width: 65.6% !important;
+    }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    #pricing_component .row div {
+        max-width: 65.9% !important;
+    }
+}
+
+/*Large devices (desktops, less than 1200px)*/
+@media (max-width: 1199.98px) {
+    .price_inclusions_list ul {
+        width: 50% !important;
+    }
+}
+
+/*Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) {
+    .price_inclusions_list ul {
+        width: 50% !important;
+    }
+}
+
+/*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) {
+}
+
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .price_inclusions_list ul {
+        width: 65% !important;
+    }
+}
+
+/*Extra large devices (large desktops)*/
+/*No media query since the extra-large breakpoint has no upper bound on its width*/
