@@ -81,7 +81,7 @@ class WebsiteController extends Controller
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  \App\Website  $website
+	 * @param  \App\Models\Website  $website
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show(Website $website)
@@ -92,7 +92,7 @@ class WebsiteController extends Controller
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  \App\Website  $website
+	 * @param  \App\Models\Website  $website
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit(Website $website)
@@ -106,7 +106,7 @@ class WebsiteController extends Controller
 	 * Update the specified resource in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
-	 * @param  \App\Website  $website
+	 * @param  \App\Models\Website  $website
 	 * @return \Illuminate\Http\Response
 	 */
 	public function update(Request $request, Website $website) {
@@ -151,7 +151,7 @@ class WebsiteController extends Controller
 				} elseif($newImage->getError() == 0) {
 					// Check to see if images is about 25MB
 					// If it is then resize it
-					if($newImage->getClientSize() < 25000000) {
+					if($newImage->getSize() < 25000000) {
 						$image = Image::make($newImage->getRealPath())->orientate();
 //					    $path = $newImage->store('public/images');
 						$image_ext = substr($image->mime(), '6');
@@ -198,7 +198,7 @@ class WebsiteController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  \App\Website  $website
+	 * @param  \App\Models\Website  $website
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy(Website $website)
@@ -215,7 +215,7 @@ class WebsiteController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  \App\Website  $website
+	 * @param  \App\Models\Website  $website
 	 * @return \Illuminate\Http\Response
 	 */
 	public function payment_reminder(Website $website) {
