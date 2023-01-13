@@ -19,6 +19,7 @@
 /public/todos
 /public/storage
 /public/storage/*
+/resources/views/test*
 /storage/*.key
 /tests
 /vendor

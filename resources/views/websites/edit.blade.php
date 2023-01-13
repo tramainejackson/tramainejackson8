@@ -452,7 +452,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <a href="{{ action([QuestionnaireController::class, 'show'], ['id' => $questionnaire->id]) }}"
+                                    <a href="{{ action([QuestionnaireController::class, 'show'], $questionnaire) }}"
                                        target="_blank">Click Here For Questionnaire Link</a>
                                 </div>
                             </div>

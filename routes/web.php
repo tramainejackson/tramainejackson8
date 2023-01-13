@@ -23,13 +23,9 @@ Route::resources([
     'questionnaires' => QuestionnaireController::class,
 ]);
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/test', function () {
+    return view('test');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 Route::get('/', [HomeController::class, 'index'])->name('web_index');
 
