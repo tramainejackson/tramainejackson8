@@ -20,6 +20,7 @@
 /public/storage
 /public/storage/*
 /resources/views/test*
+/resources/json
 /storage/*.key
 /tests
 /vendor
