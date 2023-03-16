@@ -39,10 +39,17 @@ class Message extends Model
     public function funkyCheck()
     {
         $funkyCheck = false;
-
         $skip_emails = [
             '@course-fitness.com',
+            '@needvirtualassistant.com',
+            '@morelocalclients.net',
+            '@weloantobusinesses.com',
+            '@ercbusinesstaxcredits.com',
+            '@homehealthresources.com',
+            '@analysiswebsite.com',
+            '.in.net',
             '2.83.51.s.b.9.xm@dynainbox.com',
+            'alva.delacruz@outlook.com',
             'alspeersxmz7@outlook.com',
             'info@needvirtualassistant.com',
             'outreach@morelocalclients.net',
@@ -51,23 +58,25 @@ class Message extends Model
             'donelleej13ter@outlook.com',
             'frideamrik2@hotmail.com',
             'friend@tour-med.com',
-            'c.h.a.r.med.c.rist.k.t.@gmail.com',
-            'g.allan.ta.tta.ck.er.@gmail.com',
-            'g.al.la.n.ta.t.tac.k.e.r@gmail.com',
-            'gallant.a.tt.ac.k.e.r@gmail.com',
-            'griskafishka234@gmail.com',
-            'hunterlmx6347@gmail.com',
+            'c.h.a.r.med.c.rist.k.t.',
+            'g.allan.ta.tta.ck.er.',
+            'g.al.la.n.ta.t.tac.k.e.r',
+            'gallant.a.tt.ac.k.e.r',
+            'griskafishka234',
+            'hunterlmx6347',
             'hvqsjdib@gmail.com',
             'julianamk18@hikaru3910.hiraku97.officemail.in.net',
             'kai.rus.sell009.8@gmail.com',
             'kai.russell009.8@gmail.com',
             'kostanboloyan@gmail.com',
             'lidam3regrundy@outlook.com',
-            'pozvonochnik.od.ua@gmail.com',
-            'seller.amazon.web@gmail.com',
-            's.c.ot.tr.o.b.bi.nsd.brm.5u.@gmail.com',
-            'sc.ottro.b.b.ins.dbrm5.u.@gmail.com',
-            'timofeeffsergey83@gmail.com',
+            'm.g.l.e.n.en.k.o.tpa.nk.s.w.i.m.pu.l',
+            'no-replywheva',
+            'pozvonochnik.od.ua',
+            'seller.amazon.web',
+            's.c.ot.tr.o.b.bi.nsd.brm.5u.',
+            'sc.ottro.b.b.ins.dbrm5.u.',
+            'timofeeffsergey83',
             'webmaster@gameplayin.net',
             'zelatcol@gmail.com',
         ];
@@ -97,7 +106,7 @@ class Message extends Model
         ];
 
         foreach ($skip_emails as $email) {
-            if(substr_count($this->email, $email) > 0) {
+            if(substr_count(strtolower($this->email), $email) > 0) {
                 $funkyCheck = true;
                 break;
             }
@@ -105,7 +114,7 @@ class Message extends Model
 
         if($funkyCheck === false) {
             foreach ($skip_phrases as $phrase) {
-                if((substr_count($this->subject, $phrase) > 0) || (substr_count($this->message, $phrase) > 0)) {
+                if((substr_count(strtolower($this->subject), $phrase) > 0) || (substr_count(strtolower($this->message), $phrase) > 0)) {
                     $funkyCheck = true;
                     break;
                 }
