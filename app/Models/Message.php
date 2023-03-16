@@ -34,7 +34,7 @@ class Message extends Model
     }
 
     /**
-     * Get the consult request record associated with the user.
+     * Check the message for funkyness
      */
     public function funkyCheck()
     {

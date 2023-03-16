@@ -74,6 +74,7 @@ class MessageController extends Controller
 
         if ($message->funkyCheck() === false) {
             $email_check = Message::where('email', $message->email)->get();
+
             if ($email_check->isEmpty()) {
                 if ($message->save()) {
                     // Send Email to Admin and Recipient
@@ -81,9 +82,11 @@ class MessageController extends Controller
 
                     return redirect()->back()->with('status', "Message Sent Successfully");
                 }
+            } else {
+                return redirect()->back()->with('status', "Message Sent Successfully 1");
             }
         } else {
-            return redirect()->back()->with('status', "Message Sent Successfully");
+            return redirect()->back()->with('status', "Message Sent Successfully 2");
         }
     }
 
