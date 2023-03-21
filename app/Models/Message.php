@@ -41,6 +41,7 @@ class Message extends Model
         $funkyCheck = false;
         $skip_emails = [
             '@course-fitness.com',
+            '@makemysitemobile.com',
             '@needvirtualassistant.com',
             '@morelocalclients.net',
             '@weloantobusinesses.com',
@@ -49,12 +50,12 @@ class Message extends Model
             '@analysiswebsite.com',
             '.in.net',
             '2.83.51.s.b.9.xm@dynainbox.com',
-            'alva.delacruz@outlook.com',
-            'alspeersxmz7@outlook.com',
+            'alva.delacruz',
+            'alspeersxmz7',
             'info@needvirtualassistant.com',
             'outreach@morelocalclients.net',
             'no-replywheva@gmail.com',
-            'donayb7@sora5710.kaede39.officemail.in.net',
+            'donayb7@sora5710.kaede39.officemail',
             'donelleej13ter@outlook.com',
             'frideamrik2@hotmail.com',
             'friend@tour-med.com',
@@ -64,12 +65,12 @@ class Message extends Model
             'gallant.a.tt.ac.k.e.r',
             'griskafishka234',
             'hunterlmx6347',
-            'hvqsjdib@gmail.com',
-            'julianamk18@hikaru3910.hiraku97.officemail.in.net',
-            'kai.rus.sell009.8@gmail.com',
-            'kai.russell009.8@gmail.com',
-            'kostanboloyan@gmail.com',
-            'lidam3regrundy@outlook.com',
+            'hvqsjdib',
+            'julianamk18@hikaru3910.hiraku97.officemail',
+            'kai.rus.sell009.8',
+            'kai.russell009.8',
+            'kostanboloyan',
+            'lidam3regrundy',
             'm.g.l.e.n.en.k.o.tpa.nk.s.w.i.m.pu.l',
             'no-replywheva',
             'pozvonochnik.od.ua',
@@ -79,6 +80,7 @@ class Message extends Model
             'timofeeffsergey83',
             'webmaster@gameplayin.net',
             'zelatcol@gmail.com',
+            'agnessavolkova@seobomba.com',
         ];
         $skip_phrases = [
             'porn',
@@ -103,6 +105,11 @@ class Message extends Model
             'need money',
             'seduction',
             'seduce',
+            'intimate',
+            'opt out',
+            'https://tinyurl',
+            'dating profile',
+            'makemysitemobile',
         ];
 
         foreach ($skip_emails as $email) {
