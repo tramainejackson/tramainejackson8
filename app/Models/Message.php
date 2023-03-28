@@ -50,11 +50,9 @@ class Message extends Model
             '@analysiswebsite.com',
             '.in.net',
             '2.83.51.s.b.9.xm@dynainbox.com',
+            'agnessavolkova@seobomba.com',
             'alva.delacruz',
             'alspeersxmz7',
-            'info@needvirtualassistant.com',
-            'outreach@morelocalclients.net',
-            'no-replywheva@gmail.com',
             'donayb7@sora5710.kaede39.officemail',
             'donelleej13ter@outlook.com',
             'frideamrik2@hotmail.com',
@@ -66,6 +64,7 @@ class Message extends Model
             'griskafishka234',
             'hunterlmx6347',
             'hvqsjdib',
+            'info@needvirtualassistant.com',
             'julianamk18@hikaru3910.hiraku97.officemail',
             'kai.rus.sell009.8',
             'kai.russell009.8',
@@ -73,6 +72,7 @@ class Message extends Model
             'lidam3regrundy',
             'm.g.l.e.n.en.k.o.tpa.nk.s.w.i.m.pu.l',
             'no-replywheva',
+            'outreach@morelocalclients.net',
             'pozvonochnik.od.ua',
             'seller.amazon.web',
             's.c.ot.tr.o.b.bi.nsd.brm.5u.',
@@ -80,7 +80,7 @@ class Message extends Model
             'timofeeffsergey83',
             'webmaster@gameplayin.net',
             'zelatcol@gmail.com',
-            'agnessavolkova@seobomba.com',
+            'ai-hustle',
         ];
         $skip_phrases = [
             'porn',
@@ -109,6 +109,7 @@ class Message extends Model
             'opt out',
             'https://tinyurl',
             'dating profile',
+            'intimate photos',
             'makemysitemobile',
         ];
 
