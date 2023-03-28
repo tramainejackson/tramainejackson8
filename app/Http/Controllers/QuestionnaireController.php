@@ -328,7 +328,7 @@ class QuestionnaireController extends Controller
             if ($questionnaire->website->save()) {
 //                \Mail::to('jackson.tramaine3@gmail.com')->send(new QuestionnaireCompletion($questionnaire));
 
-                return redirect()->action('HomeController@portfolio2')->with('status', 'Questionnaire Information Sent Successfully');
+                return redirect()->action([HomeController::class, 'portfolio2'])->with('status', 'Questionnaire Information Sent Successfully');
             }
         }
     }
