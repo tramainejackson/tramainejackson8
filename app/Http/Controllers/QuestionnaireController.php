@@ -36,13 +36,13 @@ class QuestionnaireController extends Controller
             $questionnaire = Questionnaire::find(request('questionnaire_id'));
 
             if ($questionnaire !== null) {
-                return redirect()->action('QuestionnaireController@show', ['questionnaires' => $questionnaires, 'questionnaire' => $questionnaire]);
+                return redirect()->action([QuestionnaireController::class, 'show'], ['questionnaires' => $questionnaires, 'questionnaire' => $questionnaire]);
             } else {
                 return back()->with('error', 'That is not a valid id for a questionnaire');
             }
 
         } else {
-            return view('questionnaires.index', compact('questionnaires'));
+            return response()->view('questionnaires.index', compact('questionnaires'));
         }
     }
 
@@ -54,7 +54,7 @@ class QuestionnaireController extends Controller
     public function create()
     {
 
-        return view('questionnaires.create');
+        return response()->view('questionnaires.create');
     }
 
     /**
@@ -77,30 +77,30 @@ class QuestionnaireController extends Controller
         $questionnaire->twitter = $request->twitter;
 
         if ($questionnaire->save()) {
-            return redirect()->action('QuestionnaireController@index')->with('status', 'New Questionnaire Added Successfully');
+            return redirect()->action([QuestionnaireController::class, 'index'])->with('status', 'New Questionnaire Added Successfully');
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Questionnaire $questionnaire
+     * @param Questionnaire $questionnaire
      * @return \Illuminate\Http\Response
      */
     public function show(Questionnaire $questionnaire)
     {
-        return view('questionnaires.show', compact('questionnaire'));
+        return response()->view('questionnaires.show', compact('questionnaire'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Questionnaire $questionnaire
+     * @param Questionnaire $questionnaire
      * @return \Illuminate\Http\Response
      */
     public function edit(Questionnaire $questionnaire)
     {
-        return view('questionnaires.edit', compact('questionnaire'));
+        return response()->view('questionnaires.edit', compact('questionnaire'));
     }
 
     /**
@@ -203,7 +203,7 @@ class QuestionnaireController extends Controller
         if ($questionnaire->save()) {
             \Mail::to('jackson.tramaine3@gmail.com')->send(new QuestionnaireCompletion($questionnaire));
 
-            return redirect()->action('HomeController@portfolio2')->with('status', 'Questionnaire Information Sent Successfully');
+            return redirect()->action([HomeController::class, 'portfolio2'])->with('status', 'Questionnaire Information Sent Successfully');
         }
     }
 
@@ -336,7 +336,7 @@ class QuestionnaireController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Questionnaire $questionnaire
+     * @param Questionnaire $questionnaire
      * @return \Illuminate\Http\Response
      */
     public function destroy(Questionnaire $questionnaire)
@@ -345,7 +345,7 @@ class QuestionnaireController extends Controller
 
         if ($questionnaire->save()) {
             if ($questionnaire->delete()) {
-                return redirect()->action('WebsiteController@index')->with('status', $questionnaire->name . ' removed successfully');
+                return redirect()->action([WebsiteController::class, 'index'])->with('status', $questionnaire->name . ' removed successfully');
             }
         }
     }

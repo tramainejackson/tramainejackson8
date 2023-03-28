@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Website;
 use App\Mail\PaymentReminder;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -25,32 +26,32 @@ class WebsiteController extends Controller
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return \Illuminate\Http\Response
+	 * @return Response
 	 */
 	public function index()
 	{
 		$websites = Website::all();
 
-		return view('websites.index', compact('websites'));
+		return response()->view('websites.index', compact('websites'));
 	}
 
 	/**
 	 * Show the form for creating a new resource.
 	 *
-	 * @return \Illuminate\Http\Response
+	 * @return Response
 	 */
 	public function create() {
 
 		$websites = Website::all();
 
-		return view('websites.create', compact('websites'));
+		return response()->view('websites.create', compact('websites'));
 	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
+	 * @param  Request  $request
+	 * @return Response
 	 */
 	public function store(Request $request) {
 
@@ -73,7 +74,7 @@ class WebsiteController extends Controller
                 'company_name'      => $website->name,
                 'projected_domain'  => $website->link,
             ])) {
-                return redirect()->action('WebsiteController@edit', ['website' => $website->id])->with('status', 'New Website Added Successfully');
+                return redirect()->action([WebsiteController::class, 'edit'], ['website' => $website->id])->with('status', 'New Website Added Successfully');
             }
 		}
 	}
@@ -81,7 +82,7 @@ class WebsiteController extends Controller
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  \App\Models\Website  $website
+	 * @param  Website  $website
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show(Website $website)
@@ -92,22 +93,22 @@ class WebsiteController extends Controller
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  \App\Models\Website  $website
-	 * @return \Illuminate\Http\Response
+	 * @param  Website  $website
+	 * @return Response
 	 */
 	public function edit(Website $website)
 	{
 		$websites = Website::all();
 
-		return view('websites.edit', compact('website', 'websites'));
+		return response()->view('websites.edit', compact('website', 'websites'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  \App\Models\Website  $website
-	 * @return \Illuminate\Http\Response
+	 * @param  Request  $request
+	 * @param  Website  $website
+	 * @return Response
 	 */
 	public function update(Request $request, Website $website) {
 
@@ -198,8 +199,8 @@ class WebsiteController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  \App\Models\Website  $website
-	 * @return \Illuminate\Http\Response
+	 * @param  Website  $website
+	 * @return Response
 	 */
 	public function destroy(Website $website)
 	{
@@ -207,7 +208,7 @@ class WebsiteController extends Controller
 
 		if($website->save()) {
 			if($website->delete()) {
-				return redirect()->action('WebsiteController@index')->with('status', $website->name . ' removed successfully');
+				return redirect()->action([WebsiteController::class, 'index'])->with('status', $website->name . ' removed successfully');
 			}
 		}
 	}
@@ -215,8 +216,8 @@ class WebsiteController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  \App\Models\Website  $website
-	 * @return \Illuminate\Http\Response
+	 * @param  Website  $website
+	 * @return Response
 	 */
 	public function payment_reminder(Website $website) {
 		// Send Email to Admin and Recipient

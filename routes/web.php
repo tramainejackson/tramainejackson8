@@ -41,8 +41,6 @@ Route::get('/settings', [HomeController::class, 'settings'])->name('settings');
 
 Route::get('/messages', [MessageController::class, 'index'])->name('messages');
 
-Route::get('/questionnaire', [HomeController::class, 'questionnaire'])->name('questionnaire');
-
 Route::post('/settings/{setting}', [HomeController::class, 'settings_update']);
 
 Route::post('/reset_count', [HomeController::class, 'reset_counter']);

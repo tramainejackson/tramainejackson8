@@ -7,6 +7,7 @@ use App\Models\Setting;
 use App\Models\Website;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -23,7 +24,7 @@ class HomeController extends Controller
 	/**
 	 * Show the application dashboard.
 	 *
-	 * @return \Illuminate\Contracts\Support\Renderable
+     * @return Response
 	 */
 	public function index(Request $request) {
 		// Check for auth
@@ -47,7 +48,7 @@ class HomeController extends Controller
 	/**
 	 * Show the application dashboard.
 	 *
-	 * @return \Illuminate\Contracts\Support\Renderable
+     * @return Response
 	 */
 	public function home() {
 		return response()->view('home');
@@ -56,7 +57,7 @@ class HomeController extends Controller
 	/**
 	 * Show the applications db settings.
 	 *
-	 * @return \Illuminate\Contracts\Support\Renderable
+     * @return Response
 	 */
 	public function settings() {
 		return response()->view('settings');
@@ -65,7 +66,7 @@ class HomeController extends Controller
 	/**
 	 * Update applications db settings.
 	 *
-	 * @return \Illuminate\Contracts\Support\Renderable
+     * @return Response
 	 */
 	public function settings_update(Request $request) {
 		$this->validate($request, [
@@ -89,7 +90,7 @@ class HomeController extends Controller
 	/**
 	 * Show recruiter portfolio page.
 	 *
-	 * @return \Illuminate\Contracts\Support\Renderable
+     * @return Response
 	 */
 	public function portfolio1(Request $request) {
 		if(!$request->hasCookie('company_recruiter')) {
@@ -121,7 +122,7 @@ class HomeController extends Controller
 	/**
 	 * Show small business portfolio page.
 	 *
-	 * @return \Illuminate\Contracts\Support\Renderable
+     * @return Response
 	 */
 	public function portfolio2(Request $request) {
 		if(!$request->hasCookie('small_business')) {
@@ -152,7 +153,7 @@ class HomeController extends Controller
 	/**
 	 * Show small business portfolio page.
 	 *
-	 * @return \Illuminate\Contracts\Support\Renderable
+	 * @return Response
 	 */
 	public function portfolio2_about(Request $request) {
 		if(!$request->hasCookie('small_business')) {
@@ -181,7 +182,7 @@ class HomeController extends Controller
 	/**
 	 * Reset the hit counter on the website.
 	 *
-	 * @return \Illuminate\Http\Response
+     * @return string
 	 */
 	public function reset_counter() {
 		$settings = Setting::first();
@@ -194,14 +195,4 @@ class HomeController extends Controller
 			return 'Website Hit Count Reset';
 		}
 	}
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Website  $website
-     * @return \Illuminate\Http\Response
-     */
-    public function questionnaire () {
-        return view('questionnaire');
-    }
 }
