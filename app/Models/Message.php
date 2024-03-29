@@ -51,6 +51,7 @@ class Message extends Model
             '.in.net',
             '2.83.51.s.b.9.xm@dynainbox.com',
             'agnessavolkova@seobomba.com',
+            'ai-hustle',
             'alva.delacruz',
             'alspeersxmz7',
             'donayb7@sora5710.kaede39.officemail',
@@ -80,7 +81,6 @@ class Message extends Model
             'timofeeffsergey83',
             'webmaster@gameplayin.net',
             'zelatcol@gmail.com',
-            'ai-hustle',
         ];
         $skip_phrases = [
             'porn',
