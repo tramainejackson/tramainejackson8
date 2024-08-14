@@ -21,8 +21,8 @@ class CreateSettingsTable extends Migration
             $table->string('address', 100)->nullable();
             $table->string('city', 50)->nullable();
             $table->char('state', 2)->nullable();
-            $table->integer('zip',5)->nullable();
-            $table->integer('hit_count',11)->nullable();
+            $table->integer('zip')->nullable();
+            $table->integer('hit_count')->nullable();
             $table->date('hit_count_date')->nullable();
             $table->timestamps();
         });
