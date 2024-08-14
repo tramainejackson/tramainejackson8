@@ -27,6 +27,7 @@ class CreateWebsitesTable extends Migration
             $table->double('amount_due', 15,2)->nullable();
             $table->char('active', 1)->nullable();
             $table->timestamps();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
 
