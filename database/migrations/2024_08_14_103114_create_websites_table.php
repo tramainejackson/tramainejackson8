@@ -13,7 +13,7 @@ class CreateWebsitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('websites', function (Blueprint $table) {
+        Schema::table('websites', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name', 25)->nullable();
             $table->string('title', 25)->nullable();
