@@ -50,16 +50,16 @@
 
     <div class="row mx-md-5" style="background-color: rgba(10,10,10,0.8);">
         <!-- HBCU Tour -->
-        {{--        <div class="bg-white h-100 position-absolute position-relative"--}}
-        {{--             style="background-image: url('/images/confirmed.png'); background-position: center; background-size: contain; width: 15%; z-index: -1;">--}}
-        {{--        </div>--}}
-        {{--        <div class="bg-white h-100 position-absolute position-relative"--}}
-        {{--             style="background-image: url('/images/logo_mesh.png'); background-position: center; background-size: contain; width: 15%; z-index: -1; right: 60px;">--}}
-        {{--        </div>--}}
+        <div class="bg-white h-100 position-absolute position-relative d-none d-md-inline-block"
+             style="background-image: url('/images/logo_mesh.png'); background-position: center; background-size: contain; width: 10%; z-index: -1;">
+        </div>
+
+        <div class="bg-white h-100 position-absolute position-relative d-none d-md-inline-block"
+             style="background-image: url('/images/logo_mesh.png'); background-position: center; background-size: contain; width: 10%; z-index: -1; right: 60px;">
+        </div>
 
         <div class="col-11 mx-auto pt-4 pt-md-5 d-flex flex-column align-items-center justify-content-start">
-
-            <div id="hbcu_tour" class="mw-100 mb-5" style="margin: 0rem 10rem;">
+            <div id="hbcu_tour" class="mw-100 mb-5 m-lg-5 px-lg-5">
                 <img src="{{ asset('/images/hbcu_college_tour_banner.png') }}" class="img-fluid"
                      alt="Reunion Banner">
             </div>
@@ -75,7 +75,8 @@
                 </div>
 
                 @php $customer_count = $customer->toArray(); @endphp
-                @if(count($customer_count) == 1))
+                @if(count($customer_count) == 1)
+                    )
 
                     @php $customer = $customer->first(); @endphp
 
@@ -290,7 +291,7 @@
                     <script type="text/javascript" src="{{ asset('js/md-form.js') }}"></script>
                 @else
                     @foreach($customer as $ini_customer)
-                        <div class="col-6 text-center text-white font8" id="">
+                        <div class="col-12 col-md-6 text-center text-white font8 pb-4" id="">
                             @if($ini_customer->first_name != null && $ini_customer->first_name != '')
                                 <p class="mb-1"><span class="fw-bold">Name</span>:&nbsp;<span
                                         class="">{{ $ini_customer->first_name . ' ' . $ini_customer->last_name }}</span>
@@ -321,6 +322,11 @@
                             @if($ini_customer->parent_phone != null && $ini_customer->parent_phone != '')
                                 <p class="mb-1"><span class="fw-bold">Phone Number</span>:&nbsp;<span
                                         class="">{{ $ini_customer->parent_phone }}</span></p>
+                            @endif
+
+                            @if($ini_customer->parent_attending != null && $ini_customer->parent_attending != '')
+                                <p class="mb-1"><span class="fw-bold">Parent Attending</span>:&nbsp;<span
+                                        class="">{{ $ini_customer->parent_attending == 'N' ? 'No' : 'Yes' }}</span></p>
                             @endif
                         </div>
                     @endforeach

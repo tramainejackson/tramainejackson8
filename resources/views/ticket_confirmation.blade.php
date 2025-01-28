@@ -41,6 +41,15 @@
     <link rel="stylesheet" href="{{ asset('css/hbcu_style.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom_styles.min.css') }}">
 
+    <style type="text/css">
+        /*Small devices (landscape phones, less than 768px)*/
+        @media (max-width: 767.98px) {
+            #logo_mesh {
+                right: 0px !important;
+            }
+        }
+    </style>
+
 </head>
 
 <body class="" style="background: url('/images/map_background.png') fixed center; background-size: contain;">
@@ -49,16 +58,16 @@
 
     <div class="row mx-md-5" style="background-color: rgba(10,10,10,0.8);">
         <!-- HBCU Tour -->
-        <div class="bg-white h-100 position-absolute position-relative"
-             style="background-image: url('/images/confirmed.png'); background-position: center; background-size: contain; width: 15%; z-index: -1;">
+        <div class="bg-white h-100 position-absolute position-relative" id="logo_confirmation"
+             style="background-image: url('/images/confirmed.png'); background-position: center; background-size: contain; width: 10%; z-index: -1;">
         </div>
-        <div class="bg-white h-100 position-absolute position-relative"
-             style="background-image: url('/images/logo_mesh.png'); background-position: center; background-size: contain; width: 15%; z-index: -1; right: 60px;">
+
+        <div class="bg-white h-100 position-absolute position-relative" id="logo_mesh"
+             style="background-image: url('/images/logo_mesh.png'); background-position: center; background-size: contain; width: 10%; z-index: -1; right: 60px;">
         </div>
 
         <div class="col-11 mx-auto pt-4 pt-md-5 d-flex flex-column align-items-center justify-content-start">
-
-            <div id="hbcu_tour" class="mw-100 mb-5" style="margin: 0rem 10rem;">
+            <div id="hbcu_tour" class="mw-100 mb-5 m-lg-5 px-lg-5">
                 <img src="{{ asset('/images/hbcu_college_tour_banner.png') }}" class="img-fluid"
                      alt="Reunion Banner">
             </div>
@@ -95,13 +104,18 @@
                         <p class="mb-1"><span class="fw-bold">Amount Received</span>:&nbsp;<span
                                 class="mb-1">${{ $customer->paid_amount }}</span></p>
 
+{{--                        @if($customer->confirmation != null && $customer->confirmation != '')--}}
+{{--                            <p class="mb-1"><span class="fw-bold">Confirmation #</span>:&nbsp;<span--}}
+{{--                                    class="">{{ $customer->confirmation }}</span></p>--}}
+{{--                        @endif--}}
+
                         <p class="mb-1"><span class="fw-bold text-decoration-underline">Instructions</span>:&nbsp;<span
                                 class=""><br/><b>April 3, 2025:</b> Depart at 7AM from the Target Shopping Center at 4000 Monument Rd, Philadelphia, PA 19131. <br/> 9AM arrive at Morgan State University for 1 hour tour and depart at 10AM <br/> 11AM arrive at Coppin State for 1 hour tour and depart at 12PM <br/> 1PM arrive at Howard University for 3 hour tour and depart at 4PM for an overnight stay at the Holiday Inn Express in Hampton Virginia <br/><br/><b>April 4, 2025:</b> Depart from Holiday Inn Express at 7AM.<br/> 8AM arrive at Hampton University for 6 hour tour and depart at 4PM to return to Philadelphia</span>
                         </p>
                     </div>
                 @else
                     @foreach($customer as $ini_customer)
-                        <div class="col-6 text-center text-white font8" id="">
+                        <div class="col-12 col-md-6 text-center text-white font8 pb-4" id="">
                             @if($ini_customer->first_name != null && $ini_customer->first_name != '')
                                 <p class="mb-1"><span class="fw-bold">Name</span>:&nbsp;<span
                                         class="">{{ $ini_customer->first_name . ' ' . $ini_customer->last_name }}</span>
@@ -133,12 +147,22 @@
                                 <p class="mb-1"><span class="fw-bold">Phone Number</span>:&nbsp;<span
                                         class="">{{ $ini_customer->parent_phone }}</span></p>
                             @endif
+
+                            @if($ini_customer->parent_attending != null && $ini_customer->parent_attending != '')
+                                <p class="mb-1"><span class="fw-bold">Parent Attending</span>:&nbsp;<span
+                                        class="">{{ $ini_customer->parent_attending == 'N' ? 'No' : 'Yes' }}</span></p>
+                            @endif
                         </div>
                     @endforeach
 
                     <div class="col-12 text-center text-white font8" id="">
                         <p class="mb-1"><span class="fw-bold">Amount Received</span>:&nbsp;<span
                                 class="mb-1">${{ $collective_paid_amount }}</span></p>
+
+{{--                        @if($customer_confirmation != null && $customer_confirmation != '')--}}
+{{--                            <p class="mb-1"><span class="fw-bold">Confirmation #</span>:&nbsp;<span--}}
+{{--                                    class="">{{ $customer_confirmation }}</span></p>--}}
+{{--                        @endif--}}
 
                         <p class="mb-1"><span class="fw-bold text-decoration-underline">Instructions</span>:&nbsp;<span
                                 class=""><br/><b>April 3, 2025:</b> Depart at 7AM from the Target Shopping Center at 4000 Monument Rd, Philadelphia, PA 19131. <br/> 9AM arrive at Morgan State University for 1 hour tour and depart at 10AM <br/> 11AM arrive at Coppin State for 1 hour tour and depart at 12PM <br/> 1PM arrive at Howard University for 3 hour tour and depart at 4PM for an overnight stay at the Holiday Inn Express in Hampton Virginia <br/><br/><b>April 4, 2025:</b> Depart from Holiday Inn Express at 7AM.<br/> 8AM arrive at Hampton University for 6 hour tour and depart at 4PM to return to Philadelphia</span>

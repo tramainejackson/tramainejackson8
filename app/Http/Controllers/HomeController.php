@@ -85,9 +85,9 @@ class HomeController extends Controller
         }
 
         if ($pif == 'N') {
-            return response()->view('registration_confirmation', compact('customer','collective_paid_amount'));
+            return response()->view('registration_confirmation', compact('customer','collective_paid_amount', 'customer_confirmation'));
         } else {
-            return response()->view('ticket_confirmation', compact('customer', 'collective_paid_amount'));
+            return response()->view('ticket_confirmation', compact('customer', 'collective_paid_amount', 'customer_confirmation'));
         }
     }
 

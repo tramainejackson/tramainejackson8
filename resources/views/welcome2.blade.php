@@ -51,7 +51,7 @@
 
         <div class="col-11 mx-auto pt-4 pt-md-5 d-flex flex-column align-items-center justify-content-start">
 
-            <div id="hbcu_tour" class="mw-100 mb-5" style="margin: 0rem 10rem;">
+            <div id="hbcu_tour" class="mw-100 mb-5 m-lg-5 px-lg-5">
                 <img src="{{ asset('/images/hbcu_college_tour_banner.png') }}" class="img-fluid"
                      alt="Reunion Banner">
             </div>
