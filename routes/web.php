@@ -23,9 +23,14 @@ Route::resources([
     'questionnaires' => QuestionnaireController::class,
 ]);
 
-//Route::get('/test', function () {
-//    return view('test');
-//});
+Route::get('/test', function () {
+    return view('test');
+});
+
+/*HBCU COLLEGE TOUR*/
+Route::get('/hbcu_college_tour', [HomeController::class, 'hbcu_college_tour'])->name('hbcu_college_tour');
+Route::post('/contact_post', [HomeController::class, 'contact_post'])->name('contact_post');
+Route::get('/hbcu_college_tour/{confirmation}', [HomeController::class, 'hbcu_college_tour_confirmation'])->name('hbcu_college_tour_confirmation');
 
 Route::get('/', [HomeController::class, 'index'])->name('web_index');
 
