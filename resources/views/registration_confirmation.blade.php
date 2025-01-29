@@ -347,8 +347,7 @@
                             <br/>Cost is $150 per person. There are limited spots on the bus.
                             Trip cost includes charter bus ride to and from all
                             universities and an overnight stay in a hotel in Virginia.
-                            Please complete the registration form so that we can reserve your spot and send you further
-                            information.</p>
+                            Please complete the registration form if you want to add a parent to the tour. Once payment is received for the tour, your spot/seat will be locked in.</p>
                     </div>
 
                     <div class="col-12 text-center text-white font8">
