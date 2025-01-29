@@ -95,6 +95,11 @@
                                     class="">{{ $customer->phone }}</span></p>
                         @endif
 
+                        @if($customer->grade != null && $customer->grade != '')
+                            <p class="mb-1"><span class="fw-bold">Phone Number</span>:&nbsp;<span
+                                    class="">{{ $customer->grade }}th</span></p>
+                        @endif
+
                         <p class="mb-1"><span class="fw-bold">Amount Received</span>:&nbsp;<span
                                 class="mb-1">${{ $customer->paid_amount }}</span></p>
 
@@ -321,6 +326,11 @@
                             @if($ini_customer->parent_phone != null && $ini_customer->parent_phone != '')
                                 <p class="mb-1"><span class="fw-bold">Phone Number</span>:&nbsp;<span
                                         class="">{{ $ini_customer->parent_phone }}</span></p>
+                            @endif
+
+                            @if($ini_customer->grade != null && $ini_customer->grade != '')
+                                <p class="mb-1"><span class="fw-bold">Grade</span>:&nbsp;<span
+                                        class="">{{ $ini_customer->grade }}th</span></p>
                             @endif
 
                             @if($ini_customer->parent_attending != null && $ini_customer->parent_attending != '')
