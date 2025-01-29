@@ -338,7 +338,7 @@
                         <p class="mb-1"><span class="fw-bold text-decoration-underline">Instructions</span>:&nbsp
                             <br/>Thanks you for registering for the HBCU Tour. This is a first come first serve event.
                             Once we receive payment, you will receive a confirmation number and your seat(s) will become
-                            fixed!
+                            guaranteed!
                         </p>
                     </div>
 
