@@ -217,8 +217,8 @@
                             <select type="text" id="parent_attending" name="parent_attending" class="w-100"
                                     value="{{ old('parent_attending') ? old('parent_attending') : '' }}"
                                     data-mdb-select-init>
-                                <option value="yes">Yes</option>
-                                <option value="no" selected>No</option>
+                                <option value="Y">Yes</option>
+                                <option value="N" selected>No</option>
                             </select>
                         </div>
                     </div>
@@ -234,8 +234,8 @@
                         <div class="border-1 border-bottom mt-2 mx-4">
                             <select type="text" id="chaperone" name="chaperone" class="w-100"
                                     value="{{ old('chaperone') ? old('chaperone') : '' }}" data-mdb-select-init>
-                                <option value="yes">Yes</option>
-                                <option value="no" selected>No</option>
+                                <option value="Y">Yes</option>
+                                <option value="N" selected>No</option>
                             </select>
                         </div>
                     </div>
