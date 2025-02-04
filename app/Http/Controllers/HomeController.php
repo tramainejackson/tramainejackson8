@@ -129,6 +129,8 @@ class HomeController extends Controller
                 $parent->parent_attending = $request->parent_attending;
                 $parent->chaperone = $request->chaperone;
                 $parent->confirmation = $customer->confirmation;
+
+                info('Someone tried saving info.' . $parent);
             }
 
             if ($customer->save()) {
@@ -150,6 +152,8 @@ class HomeController extends Controller
                 $parent->parent_attending = $request->parent_attending;
                 $parent->chaperone = $request->chaperone;
                 $parent->confirmation = $confirmation_num;
+
+                info('Someone tried saving info.' . $parent);
 
                 if ($parent->save()) {
                     return redirect()->action([HomeController::class, 'hbcu_college_tour_confirmation'], ['confirmation' => $parent->confirmation])->with('status', 'Your registration was completed successfully.');
