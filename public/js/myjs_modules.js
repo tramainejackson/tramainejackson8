@@ -1,4 +1,4 @@
-import {Input, Alert, Datepicker, Datetimepicker, Modal, Ripple, Select, Collapse, initMDB} from "./mdb.es.min.js";
+import {Input, Alert, Datepicker, Datetimepicker, Modal, Ripple, Select, Collapse, Datatable, initMDB} from "./mdb.es.min.js";
 
 //init
 initMDB({ Input });
@@ -9,3 +9,4 @@ initMDB({ Datepicker });
 initMDB({ Modal });
 initMDB({ Ripple });
 initMDB({ Datetimepicker });
+initMDB({ Datatable });

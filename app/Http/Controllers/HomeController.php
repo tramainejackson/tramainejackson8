@@ -21,7 +21,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('portfolio1', 'portfolio2', 'portfolio2_about', 'index', 'questionnaire', 'store_questionnaire', 'hbcu_college_tour', 'hbcu_college_tour_confirmation', 'contact_post');
+        $this->middleware('auth')->except('portfolio1', 'portfolio2', 'portfolio2_about', 'index', 'questionnaire', 'store_questionnaire', 'hbcu_college_tour', 'hbcu_college_tour_confirmation', 'hbcu_college_tour_registrations', 'contact_post');
     }
 
     /**
@@ -61,6 +61,17 @@ class HomeController extends Controller
     }
 
     /**
+     * Show the HBCU College Tour Home Page.
+     *
+     * @return Response
+     */
+    public function hbcu_college_tour_registrations()
+    {
+        $registrations = Customers::all();
+        return response()->view('all_registrations', compact('registrations'));
+    }
+
+    /**
      * Get the confirmation page.
      *
      * @param $customer_confirmation
@@ -85,7 +96,7 @@ class HomeController extends Controller
         }
 
         if ($pif == 'N') {
-            return response()->view('registration_confirmation', compact('customer','collective_paid_amount', 'customer_confirmation'));
+            return response()->view('registration_confirmation', compact('customer', 'collective_paid_amount', 'customer_confirmation'));
         } else {
             return response()->view('ticket_confirmation', compact('customer', 'collective_paid_amount', 'customer_confirmation'));
         }
@@ -135,7 +146,8 @@ class HomeController extends Controller
 
             if ($customer->save()) {
                 if ($request->parent_first_name || $request->parent_last_name) {
-                    if ($parent->save()) {}
+                    if ($parent->save()) {
+                    }
                 }
                 return redirect()->action([HomeController::class, 'hbcu_college_tour_confirmation'], ['confirmation' => $customer->confirmation])->with('status', 'Your registration was completed successfully.');
             } else {
