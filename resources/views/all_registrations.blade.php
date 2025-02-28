@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', config('app.name', 'HBCU College Tour'))</title>
+    <title>@yield('title', 'HBCU College Tour')</title>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('favicon/apple-icon-57x57.png') }}">
@@ -66,7 +66,6 @@
 
         </div>
 
-        {{--        <div class="mask position-relative" style="background-color: rgba(10,10,10,0.8);">--}}
         <div class="mask position-relative">
             <div class="row">
 
@@ -74,82 +73,88 @@
                     <h1 class="h2 font8 text-white text-decoration-underline pt-2">Registration Received</h1>
                 </div>
 
-                <table id="exampleTable" class="table table-responsive table-info">
-                    <thead>
-                    <tr>
-                        <th class="th-sm">Name</th>
-                        <th class="th-sm">School</th>
-                        <th class="th-sm">Grade</th>
-                        <th class="th-sm">Adult</th>
-                        <th class="th-sm">Parent Attending</th>
-                        <th class="th-sm">Chaperone</th>
-                        <th class="th-sm">Paid In Full</th>
-                    </tr>
-                    </thead>
+                <div class="col-12">
+                    <div data-mdb-datatable-init class="datatable" data-mdb-striped=true>
+                        <table id="exampleTable" class="table table-responsive table-info">
+                            <thead>
+                            <tr>
+                                <th class="th-sm">Name</th>
+                                <th class="th-sm">School</th>
+                                <th class="th-sm">Grade</th>
+                                <th class="th-sm">Adult</th>
+                                <th class="th-sm">Parent Attending</th>
+                                <th class="th-sm">Chaperone</th>
+                                <th class="th-sm">Paid In Full</th>
+                            </tr>
+                            </thead>
 
-                    <tbody>
+                            <tbody>
 
-                    @foreach($registrations as $ini_customer)
-                        <tr>
-                            @if($ini_customer->first_name != null && $ini_customer->first_name != '')
-                                <td class="mb-1 text-center font8"><span
-                                        class="">{{ $ini_customer->first_name . ' ' . $ini_customer->last_name }}</span>
-                                </td>
-                            @endif
+                            @foreach($registrations as $ini_customer)
+                                <tr>
+                                    @if($ini_customer->first_name != null && $ini_customer->first_name != '')
+                                        <td class="mb-1 text-center font8"><span
+                                                class="">{{ $ini_customer->first_name . ' ' . $ini_customer->last_name }}</span>
+                                        </td>
+                                    @endif
 
-                            @if($ini_customer->parent_first_name != null && $ini_customer->parent_first_name != '')
-                                <td class="mb-1 text-center font8"><span
-                                        class="">{{ $ini_customer->parent_first_name . ' ' . $ini_customer->parent_last_name }}</span>
-                                </td>
-                            @endif
+                                    @if($ini_customer->parent_first_name != null && $ini_customer->parent_first_name != '')
+                                        <td class="mb-1 text-center font8"><span
+                                                class="">{{ $ini_customer->parent_first_name . ' ' . $ini_customer->parent_last_name }}</span>
+                                        </td>
+                                    @endif
 
-                            @if($ini_customer->school != null && $ini_customer->school != '')
-                                <td class="mb-1 text-center font8"><span class="">{{ $ini_customer->school }}</span>
-                                </td>
-                            @else
-                                <td class="mb-1 text-center font8"><span class="">N/A</span></td>
-                            @endif
+                                    @if($ini_customer->school != null && $ini_customer->school != '')
+                                        <td class="mb-1 text-center font8"><span
+                                                class="">{{ $ini_customer->school }}</span>
+                                        </td>
+                                    @else
+                                        <td class="mb-1 text-center font8"><span class="">N/A</span></td>
+                                    @endif
 
-                            @if($ini_customer->grade != null && $ini_customer->grade != '')
-                                <td class="mb-1 text-center font8"><span
-                                        class="">{{ $ini_customer->grade }}th</span></td>
-                            @else
-                                <td class="mb-1 text-center font8"><span class="">N/A</span></td>
-                            @endif
+                                    @if($ini_customer->grade != null && $ini_customer->grade != '')
+                                        <td class="mb-1 text-center font8"><span
+                                                class="">{{ $ini_customer->grade }}th</span></td>
+                                    @else
+                                        <td class="mb-1 text-center font8"><span class="">N/A</span></td>
+                                    @endif
 
-                            @if($ini_customer->parent_first_name != null && $ini_customer->parent_first_name != '')
-                                <td class="mb-1 text-center font8"><span class="">Yes</span></td>
-                            @else
-                                <td class="mb-1 text-center font8"><span class="">No</span></td>
-                            @endif
+                                    @if($ini_customer->parent_first_name != null && $ini_customer->parent_first_name != '')
+                                        <td class="mb-1 text-center font8"><span class="">Yes</span></td>
+                                    @else
+                                        <td class="mb-1 text-center font8"><span class="">No</span></td>
+                                    @endif
 
-                            @if($ini_customer->parent_attending != null && $ini_customer->parent_attending != '')
-                                <td class="mb-1 text-center font8"><span
-                                        class="">{{ $ini_customer->parent_attending == 'N' ? 'No' : 'Yes' }}</span>
-                                </td>
-                            @else
-                                <td class="mb-1 text-center font8"><span class="">No</span></td>
-                            @endif
+                                    @if($ini_customer->parent_attending != null && $ini_customer->parent_attending != '')
+                                        <td class="mb-1 text-center font8"><span
+                                                class="">{{ $ini_customer->parent_attending == 'N' ? 'No' : 'Yes' }}</span>
+                                        </td>
+                                    @else
+                                        <td class="mb-1 text-center font8"><span class="">No</span></td>
+                                    @endif
 
-                            @if($ini_customer->chaperone != null && $ini_customer->chaperone != '')
-                                <td class="mb-1 text-center font8"><span
-                                        class="">{{ $ini_customer->chaperone == 'N' ? 'No' : 'Yes' }}</span>
-                                </td>
-                            @else
-                                <td class="mb-1 text-center font8"><span class="">No</span></td>
-                            @endif
+                                    @if($ini_customer->chaperone != null && $ini_customer->chaperone != '')
+                                        <td class="mb-1 text-center font8"><span
+                                                class="">{{ $ini_customer->chaperone == 'N' ? 'No' : 'Yes' }}</span>
+                                        </td>
+                                    @else
+                                        <td class="mb-1 text-center font8"><span class="">No</span></td>
+                                    @endif
 
-                            @if($ini_customer->paid_in_full != null && $ini_customer->paid_in_full != '')
-                                <td class="mb-1 text-center font8"><span
-                                        class="">{{ $ini_customer->paid_in_full == 'N' ? 'No' : 'Yes' }}</span></td>
-                            @else
-                                <td class="mb-1 text-center font8"><span class="">No</span></td>
-                            @endif
-                        </tr>
-                    @endforeach
+                                    @if($ini_customer->paid_in_full != null && $ini_customer->paid_in_full != '')
+                                        <td class="mb-1 text-center font8"><span
+                                                class="">{{ $ini_customer->paid_in_full == 'N' ? 'No' : 'Yes' }}</span>
+                                        </td>
+                                    @else
+                                        <td class="mb-1 text-center font8"><span class="">No</span></td>
+                                    @endif
+                                </tr>
+                            @endforeach
 
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -157,15 +162,24 @@
 
 
 {{--FOOTER--}}
-<div class="" id="">
+<div class="alert fade" id="show-example" data-mdb-hidden="true" role="alert" data-mdb-alert-init data-mdb-color="primary">
+    Hidden alert!
+</div>
+<div class="" id="footer1">
     @include('components.copyright')
 </div>
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
+
 <!-- Bootstrap core -->
-{{--<script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>--}}
-{{--<!-- Custom Scripts -->--}}
-{{--<script type="text/javascript" src="{{ asset('js/myjs_functions.js') }}"></script>--}}
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+<!-- Custom Scripts -->
+<script type="module" src="{{ asset('js/myjs_modules.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/myjs_functions.js') }}"></script>
+
+<script type="module">
+    import { Alert } from "{{ asset('/js/mdb.es.min.js') }}";
+
+    // Alert.getInstance(document.getElementById('show-example')).show();
+</script>
 
 </body>
 </html>
