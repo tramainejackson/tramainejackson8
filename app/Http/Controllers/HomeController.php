@@ -107,6 +107,14 @@ class HomeController extends Controller
     {
         $customer = Customers::where('confirmation', $customer_confirmation)->get();
 
+        if ($customer->count() == 2) {
+            if($customer->first()->is_sponsor == 'Y') {
+                $customer->shift();
+            } elseif($customer->last()->is_sponsor == 'Y') {
+                $customer->pop();
+            }
+        }
+
         if ($customer->count() == 1) {
             $collective_paid_amount = 0;
             $pif = $customer->first()->paid_in_full;

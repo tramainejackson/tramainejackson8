@@ -83,7 +83,6 @@
 
                 @php $customer_count = $customer->toArray(); @endphp
                 @if(count($customer_count) == 1)
-                    )
 
                     @php $customer = $customer->first(); @endphp
 
