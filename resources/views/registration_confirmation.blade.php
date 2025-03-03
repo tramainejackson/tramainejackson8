@@ -295,49 +295,52 @@
                     <script type="text/javascript" src="{{ asset('js/md-form.js') }}"></script>
                 @else
                     @foreach($customer as $ini_customer)
-                        <div class="col-12 col-md-6 text-center text-white font8 pb-4" id="">
-                            @if($ini_customer->first_name != null && $ini_customer->first_name != '')
-                                <p class="mb-1"><span class="fw-bold">Name</span>:&nbsp;<span
-                                        class="">{{ $ini_customer->first_name . ' ' . $ini_customer->last_name }}</span>
-                                </p>
-                            @endif
+                        @if($ini_customer->is_sponsor == 'N')
+                            <div class="col-12 col-md-6 text-center text-white font8 pb-4" id="">
+                                @if($ini_customer->first_name != null && $ini_customer->first_name != '')
+                                    <p class="mb-1"><span class="fw-bold">Name</span>:&nbsp;<span
+                                            class="">{{ $ini_customer->first_name . ' ' . $ini_customer->last_name }}</span>
+                                    </p>
+                                @endif
 
-                            @if($ini_customer->parent_first_name != null && $ini_customer->parent_first_name != '')
-                                <p class="mb-1"><span class="fw-bold">Name</span>:&nbsp;<span
-                                        class="">{{ $ini_customer->parent_first_name . ' ' . $ini_customer->parent_last_name }}</span>
-                                </p>
-                            @endif
+                                @if($ini_customer->parent_first_name != null && $ini_customer->parent_first_name != '')
+                                    <p class="mb-1"><span class="fw-bold">Name</span>:&nbsp;<span
+                                            class="">{{ $ini_customer->parent_first_name . ' ' . $ini_customer->parent_last_name }}</span>
+                                    </p>
+                                @endif
 
-                            @if($ini_customer->email != null && $ini_customer->email != '')
-                                <p class="mb-1"><span class="fw-bold">Email Address</span>:&nbsp;<span
-                                        class="">{{ $ini_customer->email }}</span></p>
-                            @endif
+                                @if($ini_customer->email != null && $ini_customer->email != '')
+                                    <p class="mb-1"><span class="fw-bold">Email Address</span>:&nbsp;<span
+                                            class="">{{ $ini_customer->email }}</span></p>
+                                @endif
 
-                            @if($ini_customer->parent_email != null && $ini_customer->parent_email != '')
-                                <p class="mb-1"><span class="fw-bold">Email Address</span>:&nbsp;<span
-                                        class="">{{ $ini_customer->parent_email }}</span></p>
-                            @endif
+                                @if($ini_customer->parent_email != null && $ini_customer->parent_email != '')
+                                    <p class="mb-1"><span class="fw-bold">Email Address</span>:&nbsp;<span
+                                            class="">{{ $ini_customer->parent_email }}</span></p>
+                                @endif
 
-                            @if($ini_customer->phone != null && $ini_customer->phone != '')
-                                <p class="mb-1"><span class="fw-bold">Phone Number</span>:&nbsp;<span
-                                        class="">{{ $ini_customer->phone }}</span></p>
-                            @endif
+                                @if($ini_customer->phone != null && $ini_customer->phone != '')
+                                    <p class="mb-1"><span class="fw-bold">Phone Number</span>:&nbsp;<span
+                                            class="">{{ $ini_customer->phone }}</span></p>
+                                @endif
 
-                            @if($ini_customer->parent_phone != null && $ini_customer->parent_phone != '')
-                                <p class="mb-1"><span class="fw-bold">Phone Number</span>:&nbsp;<span
-                                        class="">{{ $ini_customer->parent_phone }}</span></p>
-                            @endif
+                                @if($ini_customer->parent_phone != null && $ini_customer->parent_phone != '')
+                                    <p class="mb-1"><span class="fw-bold">Phone Number</span>:&nbsp;<span
+                                            class="">{{ $ini_customer->parent_phone }}</span></p>
+                                @endif
 
-                            @if($ini_customer->grade != null && $ini_customer->grade != '')
-                                <p class="mb-1"><span class="fw-bold">Grade</span>:&nbsp;<span
-                                        class="">{{ $ini_customer->grade }}th</span></p>
-                            @endif
+                                @if($ini_customer->grade != null && $ini_customer->grade != '')
+                                    <p class="mb-1"><span class="fw-bold">Grade</span>:&nbsp;<span
+                                            class="">{{ $ini_customer->grade }}th</span></p>
+                                @endif
 
-                            @if($ini_customer->parent_attending != null && $ini_customer->parent_attending != '')
-                                <p class="mb-1"><span class="fw-bold">Parent Attending</span>:&nbsp;<span
-                                        class="">{{ $ini_customer->parent_attending == 'N' ? 'No' : 'Yes' }}</span></p>
-                            @endif
-                        </div>
+                                @if($ini_customer->parent_attending != null && $ini_customer->parent_attending != '')
+                                    <p class="mb-1"><span class="fw-bold">Parent Attending</span>:&nbsp;<span
+                                            class="">{{ $ini_customer->parent_attending == 'N' ? 'No' : 'Yes' }}</span>
+                                    </p>
+                                @endif
+                            </div>
+                        @endif
                     @endforeach
 
                     <div class="col-12 text-center text-white font8" id="">
