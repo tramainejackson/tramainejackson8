@@ -46,7 +46,7 @@
 
 <body class="" style="background: url('/images/map_background.png') fixed center; background-size: contain;">
 
-<div id="individual-confirmation-page" class="container-fluid text-center" style="">
+<div id="sponsors-page" class="container-fluid text-center" style="">
 
     <div class="row mx-md-5" style="background-color: rgba(10,10,10,0.8);">
         <!-- HBCU Tour -->
@@ -63,14 +63,21 @@
                 <img src="{{ asset('/images/hbcu_college_tour_banner.png') }}" class="img-fluid"
                      alt="Reunion Banner">
             </div>
+        </div>
 
+        <div class="col-11 mx-auto py-3 d-flex flex-column align-items-center justify-content-start"
+             style="z-index: 1">
+            <h1 class="px-5 font1 text-white">Thank you for your consideration to be a sponsor for one of our students
+                to attend the HBCU Tour. The fee for the tour is $150 per student. Here are the list of students that
+                are available for a sponsor.</h1>
         </div>
 
         <div class="mask position-relative">
             <div class="row">
 
                 <div class="col-12">
-                    <h1 class="h2 font8 text-white text-decoration-underline pt-2">Registration Received</h1>
+                    <h1 class="bg-info font8 h2 mb-0 pb-3 pt-2 text-decoration-underline text-white">Students Available
+                        For Sponsor</h1>
                 </div>
 
                 <div class="col-12">
@@ -79,81 +86,67 @@
                             <thead>
                             <tr>
                                 <th class="th-sm">Name</th>
-                                <th class="th-sm">School</th>
                                 <th class="th-sm">Grade</th>
-                                <th class="th-sm">Adult</th>
-                                <th class="th-sm">Parent Attending</th>
-                                <th class="th-sm">Chaperone</th>
-                                <th class="th-sm">Paid In Full</th>
+                                <th class="th-sm">Sponsor</th>
                             </tr>
                             </thead>
 
                             <tbody>
 
                             @foreach($registrations as $ini_customer)
-                                <tr>
-                                    @if($ini_customer->first_name != null && $ini_customer->first_name != '')
-                                        <td class="mb-1 text-center font8"><span
-                                                class="">{{ $ini_customer->first_name . ' ' . $ini_customer->last_name }}</span>
+                                @if($ini_customer->paid_by_sponsor == 'N' && $ini_customer->paid_by_donation == 'N' && $ini_customer->grade != null)
+                                    <tr>
+                                        @if($ini_customer->first_name != null && $ini_customer->first_name != '')
+                                            <td class="mb-1 text-center font8"><span
+                                                    class="">{{ substr($ini_customer->first_name, 0, 1) . '. ' . substr($ini_customer->last_name, 0 ,3) . '...' }}</span>
+                                            </td>
+                                        @endif
+
+                                        @if($ini_customer->grade != null && $ini_customer->grade != '')
+                                            <td class="mb-1 text-center font8"><span
+                                                    class="">{{ $ini_customer->grade }}th</span></td>
+                                        @else
+                                            <td class="mb-1 text-center font8"><span class="">N/A</span></td>
+                                        @endif
+
+                                        <td class="mb-1 text-center font8">
+                                            <button class="btn btn-info btn-sm" type="button" data-mdb-ripple-init
+                                                    data-mdb-modal-init data-mdb-target="#exampleModal"
+                                                    onclick="showSponsor(this)">Sponsor This Student
+                                            </button>
+
+                                            <input type="text" name="confirmation_num" value="{{ $ini_customer->confirmation }}" class="d-none" hidden>
                                         </td>
-                                    @endif
 
-                                    @if($ini_customer->parent_first_name != null && $ini_customer->parent_first_name != '')
-                                        <td class="mb-1 text-center font8"><span
-                                                class="">{{ $ini_customer->parent_first_name . ' ' . $ini_customer->parent_last_name }}</span>
-                                        </td>
-                                    @endif
-
-                                    @if($ini_customer->school != null && $ini_customer->school != '')
-                                        <td class="mb-1 text-center font8"><span
-                                                class="">{{ $ini_customer->school }}</span>
-                                        </td>
-                                    @else
-                                        <td class="mb-1 text-center font8"><span class="">N/A</span></td>
-                                    @endif
-
-                                    @if($ini_customer->grade != null && $ini_customer->grade != '')
-                                        <td class="mb-1 text-center font8"><span
-                                                class="">{{ $ini_customer->grade }}th</span></td>
-                                    @else
-                                        <td class="mb-1 text-center font8"><span class="">N/A</span></td>
-                                    @endif
-
-                                    @if($ini_customer->parent_first_name != null && $ini_customer->parent_first_name != '')
-                                        <td class="mb-1 text-center font8"><span class="">Yes</span></td>
-                                    @else
-                                        <td class="mb-1 text-center font8"><span class="">No</span></td>
-                                    @endif
-
-                                    @if($ini_customer->parent_attending != null && $ini_customer->parent_attending != '')
-                                        <td class="mb-1 text-center font8"><span
-                                                class="">{{ $ini_customer->parent_attending == 'N' ? 'No' : 'Yes' }}</span>
-                                        </td>
-                                    @else
-                                        <td class="mb-1 text-center font8"><span class="">No</span></td>
-                                    @endif
-
-                                    @if($ini_customer->chaperone != null && $ini_customer->chaperone != '')
-                                        <td class="mb-1 text-center font8"><span
-                                                class="">{{ $ini_customer->chaperone == 'N' ? 'No' : 'Yes' }}</span>
-                                        </td>
-                                    @else
-                                        <td class="mb-1 text-center font8"><span class="">No</span></td>
-                                    @endif
-
-                                    @if($ini_customer->paid_in_full != null && $ini_customer->paid_in_full != '')
-                                        <td class="mb-1 text-center font8"><span
-                                                class="">{{ $ini_customer->paid_in_full == 'N' ? 'No' : 'Yes' }}</span>
-                                        </td>
-                                    @else
-                                        <td class="mb-1 text-center font8"><span class="">No</span></td>
-                                    @endif
-                                </tr>
+                                    </tr>
+                                @endif
                             @endforeach
 
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <div class="modal-header bg-secondary text-third">
+                    <h5 class="modal-title mx-auto" id="exampleModalLabel">Sponsor Information</h5>
+                </div>
+
+                <div class="modal-body">
+                    @include('components.hbcu_tour_sponsor_registration')
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">
+                        Close
+                    </button>
                 </div>
             </div>
         </div>
@@ -171,12 +164,6 @@
 <!-- Custom Scripts -->
 <script type="module" src="{{ asset('js/myjs_modules.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/myjs_functions.js') }}"></script>
-
-<script type="module">
-    import { Alert } from "{{ asset('/js/mdb.es.min.js') }}";
-
-    // Alert.getInstance(document.getElementById('show-example')).show();
-</script>
 
 </body>
 </html>

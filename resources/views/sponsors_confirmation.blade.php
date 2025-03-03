@@ -46,11 +46,19 @@
 
 <body class="" style="background: url('/images/map_background.png') fixed center; background-size: contain;">
 
-<div class="jumbotron-banner text-center">
-    <div class="mx-auto container" style="background-color: rgba(10,10,10,0.8)">
+<div id="individual-confirmation-page" class="container-fluid text-center" style="">
+
+    <div class="row mx-md-5" style="background-color: rgba(10,10,10,0.8);">
+        <!-- HBCU Tour -->
+        <div class="bg-white h-100 position-absolute position-relative d-none d-md-inline-block"
+             style="background-image: url('/images/logo_mesh.png'); background-position: center; background-size: contain; width: 10%; z-index: -1;">
+        </div>
+
+        <div class="bg-white h-100 position-absolute position-relative d-none d-md-inline-block"
+             style="background-image: url('/images/logo_mesh.png'); background-position: center; background-size: contain; width: 10%; z-index: -1; right: 60px;">
+        </div>
 
         <div class="col-11 mx-auto pt-4 pt-md-5 d-flex flex-column align-items-center justify-content-start">
-
             <div id="hbcu_tour" class="mw-100 mb-5 m-lg-5 px-lg-5">
                 <img src="{{ asset('/images/hbcu_college_tour_banner.png') }}" class="img-fluid"
                      alt="Reunion Banner">
@@ -58,60 +66,65 @@
 
         </div>
 
-        <div class="text-light font1 mt-1" style="z-index: 1"
-             data-mdb-toggle="animation"
-             data-mdb-animation="fly-in-down"
-             data-mdb-animation-delay=2000
-             data-mdb-animation-start="onScroll"
-             data-mdb-animation-duration=2000
-             data-mdb-animation-show-on-load=false>
-            <h1 class="px-5">Welcome to the registration for the HBCU College Tour.</h1>
-
-            <!-- ITINERARY -->
-            <div class="row mt-4">
-                <div class="col-12">
-                    <h2 class="px-5 text-decoration-underline">ITINERARY</h2>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <h4 class="text-decoration-underline">April 3rd</h4>
-
-                    <ul class="list-inline-item">
-                        <li class="">Visit Morgan State</li>
-                        <li class="">Visit Coppin State</li>
-                        <li class="">Visit Howard University</li>
-                        <li class="">Travel To Virginia</li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6">
-                    <h4 class="text-decoration-underline">April 4th</h4>
-
-                    <ul class="list-inline-item">
-                        <li class="">Visit Hampton University</li>
-                        <li class="">Return Home</li>
-                    </ul>
-                </div>
-            </div>
-
+        {{--        <div class="mask position-relative" style="background-color: rgba(10,10,10,0.8);">--}}
+        <div class="mask position-relative">
             <div class="row">
-                <div class="col-12">
-                    <p class="">Cost is $150 per person. There are limited spots on the bus.
-                        Trip cost includes charter bus ride to and from all
-                        universities and an overnight stay in a hotel in Virginia.
-                        Please complete the registration form so that we can reserve your spot and send you further information.</p>
-                </div>
 
                 <div class="col-12">
-                    <p class="px-5 pt-2 mb-0">If anyone has any suggestions or questions. Please feel free to email us at
-                        <a href="mailto:hses04reunion@gmail.com">jackson.tramaine3@gmail.com</a></p>
-
+                    <h1 class="h2 font8 text-white text-decoration-underline pt-2">Sponsor Registration Received</h1>
+                    <p class="text-white">Thank you for signing up to sponsor one or more of our students to attend the HBCU Tour.
+                        Below is the information we received from you and some additional information.
+                    </p>
                 </div>
+
+                <div class="col-12 text-center text-white font8" id="">
+                    <p class="mb-1"><span class="fw-bold">Name</span>:&nbsp;<span
+                            class="">{{ $sponsor->parent_first_name . ' ' . $sponsor->parent_last_name }}</span>
+                    </p>
+
+                    @if($sponsor->parent_email != null && $sponsor->parent_email != '')
+                        <p class="mb-1"><span class="fw-bold">Email Address</span>:&nbsp;<span
+                                class="">{{ $sponsor->parent_email }}</span></p>
+                    @endif
+
+                    @if($sponsor->parent_phone != null && $sponsor->parent_phone != '')
+                        <p class="mb-1"><span class="fw-bold">Phone Number</span>:&nbsp;<span
+                                class="">{{ $sponsor->parent_phone }}</span></p>
+                    @endif
+
+                    @if($sponsor->grade != null && $sponsor->grade != '')
+                        <p class="mb-1"><span class="fw-bold">Phone Number</span>:&nbsp;<span
+                                class="">{{ $sponsor->grade }}th</span></p>
+                    @endif
+
+                    <p class="mb-1"><span class="fw-bold">Amount Received</span>:&nbsp;<span
+                            class="mb-1">${{ $sponsor->paid_amount }}</span></p>
+
+                    <div class="col-12 text-center text-white font8 my-3">
+                        <p class=""><span class="fw-bold text-decoration-underline">Cost & Includes</span>:&nbsp
+                            <br/>Cost is $150 per person. There are limited spots on the bus.
+                            Trip cost includes charter bus ride to and from all
+                            universities and an overnight stay in a hotel in Virginia.
+                        </p>
+                    </div>
+
+                    <div class="col-12 text-center text-white font8">
+                        <p class=""><span class="fw-bold text-decoration-underline">Payments</span>:&nbsp
+                            <br/>You can make a payment to any of the options below.</p>
+
+                        <ul class="list-inline-item">
+                            <li><b>CashApp:</b>&nbsp;$tramaine1986</li>
+                            <li><b>Zelle:</b>&nbsp;2678794089</li>
+                            <li><b>PayPal:</b>&nbsp;paypal.me/actionjack</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-
-    @include('components.hbcu_tour_registration')
 </div>
+
 
 {{--FOOTER--}}
 <div class="" id="">
@@ -122,18 +135,6 @@
 <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
 <!-- Custom Scripts -->
 <script type="text/javascript" src="{{ asset('js/myjs_functions.js') }}"></script>
-
-@if(session('status'))
-    <script type="text/javascript">
-        document.getElementsByClassName('alertBody')[0].innerHTML = '{{ session('status') }}';
-        mdb.Alert.getInstance(document.getElementById('return-data-alert')).show();
-    </script>
-@elseif(session('bad_status'))
-    <script type="text/javascript">
-        document.getElementsByClassName('alertBody')[1].innerHTML = '{{ session('bad_status') }}';
-        mdb.Alert.getInstance(document.getElementById('return-data-alert-bad')).show();
-    </script>
-@endif
 
 </body>
 </html>

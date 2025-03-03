@@ -28,10 +28,12 @@ Route::get('/test', function () {
 });
 
 /*HBCU COLLEGE TOUR*/
-Route::get('/hbcu_college_tour', [HomeController::class, 'hbcu_college_tour'])->name('hbcu_college_tour');
 Route::post('/contact_post', [HomeController::class, 'contact_post'])->name('contact_post');
+Route::get('/hbcu_college_tour', [HomeController::class, 'hbcu_college_tour'])->name('hbcu_college_tour');
 Route::get('/hbcu_college_tour/{confirmation}', [HomeController::class, 'hbcu_college_tour_confirmation'])->name('hbcu_college_tour_confirmation');
+Route::get('/hbcu_college_tour_sponsors', [HomeController::class, 'hbcu_college_tour_sponsors'])->name('hbcu_college_tour_sponsors');
 Route::get('/hbcu_college_tour_registrations/', [HomeController::class, 'hbcu_college_tour_registrations'])->name('hbcu_college_tour_registrations');
+Route::get('/hbcu_college_tour_sponsors_confirmation/{confirmation}', [HomeController::class, 'hbcu_college_tour_sponsors_confirmation'])->name('hbcu_college_tour_sponsors_confirmation');
 
 Route::get('/', [HomeController::class, 'index'])->name('web_index');
 

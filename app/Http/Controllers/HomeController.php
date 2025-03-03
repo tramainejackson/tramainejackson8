@@ -21,7 +21,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('portfolio1', 'portfolio2', 'portfolio2_about', 'index', 'questionnaire', 'store_questionnaire', 'hbcu_college_tour', 'hbcu_college_tour_confirmation', 'hbcu_college_tour_registrations', 'contact_post');
+        $this->middleware('auth')->except('portfolio1', 'portfolio2', 'portfolio2_about', 'index', 'questionnaire', 'store_questionnaire', 'hbcu_college_tour', 'hbcu_college_tour_confirmation', 'hbcu_college_tour_registrations', 'contact_post', 'hbcu_college_tour_sponsors', 'hbcu_college_tour_sponsors_confirmation');
     }
 
     /**
@@ -61,7 +61,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the HBCU College Tour Home Page.
+     * Show the HBCU College Tour Registrations.
      *
      * @return Response
      */
@@ -69,6 +69,32 @@ class HomeController extends Controller
     {
         $registrations = Customers::all();
         return response()->view('all_registrations', compact('registrations'));
+    }
+
+    /**
+     * Show the HBCU College Tour Sponsor.
+     *
+     * @return Response
+     */
+    public function hbcu_college_tour_sponsors()
+    {
+        $registrations = Customers::all();
+        return response()->view('registration_sponsors', compact('registrations'));
+    }
+
+    /**
+     * Show the HBCU College Tour Sponsor.
+     *
+     * @return Response
+     */
+    public function hbcu_college_tour_sponsors_confirmation($customer_confirmation)
+    {
+        $sponsor = Customers::where([
+            ['confirmation', '=', $customer_confirmation],
+            ['is_sponsor', '=', 'Y']
+        ])->first();
+
+        return response()->view('sponsors_confirmation', compact('sponsor'));
     }
 
     /**
@@ -155,7 +181,25 @@ class HomeController extends Controller
             }
         } else {
             $confirmation_num = $request->confirmation_num;
-            if ($request->parent_first_name || $request->parent_last_name) {
+
+            if ($request->sponsor_company) {
+                $sponsor = new Customers();
+                $sponsor->parent_first_name = $request->parent_first_name;
+                $sponsor->parent_last_name = $request->parent_last_name;
+                $sponsor->parent_email = $request->parent_email;
+                $sponsor->parent_phone = $request->parent_phone;
+                $sponsor->sponsor_company = $request->sponsor_company;
+                $sponsor->is_sponsor = 'Y';
+                $sponsor->confirmation = $confirmation_num;
+
+                info('Someone tried saving info.' . $sponsor);
+
+                if ($sponsor->save()) {
+                    return redirect()->action([HomeController::class, 'hbcu_college_tour_sponsor_confirmation'], ['confirmation' => $sponsor->confirmation])->with('status', 'Your registration was completed successfully.');
+                } else {
+                    return back()->with('bad_status', 'Form not submitted. Please try again.')->withInput();
+                }
+            } elseif ($request->parent_first_name || $request->parent_last_name) {
                 $parent = new Customers();
                 $parent->parent_first_name = $request->parent_first_name;
                 $parent->parent_last_name = $request->parent_last_name;
