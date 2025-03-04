@@ -67,7 +67,16 @@ class HomeController extends Controller
      */
     public function hbcu_college_tour_registrations()
     {
-        $registrations = Customers::all();
+        $students = Customers::where([
+            ['grade', '<>', null],
+        ])->get();
+
+        $parents = Customers::where([
+            ['parent_attending', '=', 'Y'],
+        ])->get();
+
+        $registrations = $students->merge($parents);
+
         return response()->view('all_registrations', compact('registrations'));
     }
 
