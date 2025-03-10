@@ -115,6 +115,7 @@ class HomeController extends Controller
     public function hbcu_college_tour_confirmation($customer_confirmation)
     {
         $customer = Customers::where('confirmation', $customer_confirmation)->get();
+        $title = '';
 
         if ($customer->count() == 2) {
             if($customer->first()->is_sponsor == 'Y') {
@@ -127,7 +128,7 @@ class HomeController extends Controller
         if ($customer->count() == 1) {
             $collective_paid_amount = 0;
             $pif = $customer->first()->paid_in_full;
-//            $customer = $customer->first();
+            $title = $customer->first()->first_name . ' ' . $customer->first()->last_name . ' Confirmation';
         } else {
             if ($customer == null) {
                 $customer = new Customers;
@@ -135,13 +136,14 @@ class HomeController extends Controller
             } else {
                 $collective_paid_amount = Customers::where('confirmation', $customer_confirmation)->first()->paid_amount;
                 $pif = Customers::where('confirmation', $customer_confirmation)->first()->paid_in_full;
+                $title = $customer->first()->first_name . ' ' . $customer->first()->last_name . ' Confirmation';
             }
         }
 
         if ($pif == 'N') {
-            return response()->view('registration_confirmation', compact('customer', 'collective_paid_amount', 'customer_confirmation'));
+            return response()->view('registration_confirmation', compact('customer', 'collective_paid_amount', 'customer_confirmation', 'title'));
         } else {
-            return response()->view('ticket_confirmation', compact('customer', 'collective_paid_amount', 'customer_confirmation'));
+            return response()->view('ticket_confirmation', compact('customer', 'collective_paid_amount', 'customer_confirmation', 'title'));
         }
     }
 
