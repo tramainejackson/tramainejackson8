@@ -85,6 +85,7 @@
                                 <th class="th-sm">Parent Attending</th>
                                 <th class="th-sm">Chaperone</th>
                                 <th class="th-sm">Paid In Full</th>
+                                <th class="th-sm">Confirmation Page</th>
                             </tr>
                             </thead>
 
@@ -148,6 +149,12 @@
                                     @else
                                         <td class="mb-1 text-center font8"><span class="">No</span></td>
                                     @endif
+
+                                    @if($ini_customer->confirmation != null)
+                                        <td class="mb-1 text-center font8"><span class=""><a class="btn btn-sm btn-primary" href="{{ route('hbcu_college_tour_confirmation', ['confirmation' => $ini_customer->confirmation]) }}" target="_blank">Confirmation</a></span></td>
+                                    @else
+                                        <td class="mb-1 text-center font8"><span class="">No</span></td>
+                                    @endif
                                 </tr>
                             @endforeach
 
@@ -173,7 +180,7 @@
 <script type="text/javascript" src="{{ asset('js/myjs_functions.js') }}"></script>
 
 <script type="module">
-    import { Alert } from "{{ asset('/js/mdb.es.min.js') }}";
+    import {Alert} from "{{ asset('/js/mdb.es.min.js') }}";
 
     // Alert.getInstance(document.getElementById('show-example')).show();
 </script>
