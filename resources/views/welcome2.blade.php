@@ -67,50 +67,54 @@
              data-mdb-animation-show-on-load=false>
             <h1 class="px-5">Welcome to the registration for the HBCU College Tour.</h1>
 
+            <h4 class="px-5">We're sorry but we have currently reached the maximum number of guest for this upcoming
+                tour. If you have already registered, we have your email address on file and you will be notified first
+                for any upcoming tours.</h4>
+
             <!-- ITINERARY -->
-            <div class="row mt-4">
-                <div class="col-12">
-                    <h2 class="px-5 text-decoration-underline">ITINERARY</h2>
-                </div>
+            {{--            <div class="row mt-4">--}}
+            {{--                <div class="col-12">--}}
+            {{--                    <h2 class="px-5 text-decoration-underline">ITINERARY</h2>--}}
+            {{--                </div>--}}
 
-                <div class="col-12 col-md-6">
-                    <h4 class="text-decoration-underline">April 3rd</h4>
+            {{--                <div class="col-12 col-md-6">--}}
+            {{--                    <h4 class="text-decoration-underline">April 3rd</h4>--}}
 
-                    <ul class="list-inline-item">
-                        <li class="">Visit Morgan State</li>
-                        <li class="">Visit Coppin State</li>
-                        <li class="">Visit Howard University</li>
-                        <li class="">Travel To Virginia</li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6">
-                    <h4 class="text-decoration-underline">April 4th</h4>
+            {{--                    <ul class="list-inline-item">--}}
+            {{--                        <li class="">Visit Morgan State</li>--}}
+            {{--                        <li class="">Visit Coppin State</li>--}}
+            {{--                        <li class="">Visit Howard University</li>--}}
+            {{--                        <li class="">Travel To Virginia</li>--}}
+            {{--                    </ul>--}}
+            {{--                </div>--}}
+            {{--                <div class="col-12 col-md-6">--}}
+            {{--                    <h4 class="text-decoration-underline">April 4th</h4>--}}
 
-                    <ul class="list-inline-item">
-                        <li class="">Visit Hampton University</li>
-                        <li class="">Return Home</li>
-                    </ul>
-                </div>
+            {{--                    <ul class="list-inline-item">--}}
+            {{--                        <li class="">Visit Hampton University</li>--}}
+            {{--                        <li class="">Return Home</li>--}}
+            {{--                    </ul>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
+
+            {{--            <div class="row">--}}
+            {{--                <div class="col-12">--}}
+            {{--                    <p class="">Cost is $150 per person. There are limited spots on the bus.--}}
+            {{--                        Trip cost includes charter bus ride to and from all--}}
+            {{--                        universities and an overnight stay in a hotel in Virginia.--}}
+            {{--                        Please complete the registration form so that we can reserve your spot and send you further information.</p>--}}
+            {{--                </div>--}}
+
+            <div class="col-12">
+                <p class="px-5 pt-2 mb-0">If anyone has any questions. Please feel free to email us at
+                    <a href="mailto:hbcucollegetour215@gmail.com">hbcucollegetour215@gmail.com</a></p>
+
             </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <p class="">Cost is $150 per person. There are limited spots on the bus.
-                        Trip cost includes charter bus ride to and from all
-                        universities and an overnight stay in a hotel in Virginia.
-                        Please complete the registration form so that we can reserve your spot and send you further information.</p>
-                </div>
-
-                <div class="col-12">
-                    <p class="px-5 pt-2 mb-0">If anyone has any suggestions or questions. Please feel free to email us at
-                        <a href="mailto:hses04reunion@gmail.com">jackson.tramaine3@gmail.com</a></p>
-
-                </div>
-            </div>
+            {{--            </div>--}}
         </div>
     </div>
 
-    @include('components.hbcu_tour_registration')
+    {{--    @include('components.hbcu_tour_registration')--}}
 </div>
 
 {{--FOOTER--}}
