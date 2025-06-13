@@ -25,7 +25,7 @@
                     </div>
 
                     @if ($errors->has('first_name'))
-                        <p class="red-text">{{ $errors->first('first_name') }}</p>
+                        <p class="text-danger">{{ $errors->first('first_name') }}</p>
                     @endif
 
                 </div>
@@ -43,7 +43,7 @@
                     </div>
 
                     @if ($errors->has('last_name'))
-                        <p class="red-text">{{ $errors->first('last_name') }}</p>
+                        <p class="text-danger">{{ $errors->first('last_name') }}</p>
                     @endif
 
                 </div>
@@ -60,7 +60,7 @@
                     </div>
 
                     @if ($errors->has('email'))
-                        <p class="red-text">{{ $errors->first('email') }}</p>
+                        <p class="text-danger">{{ $errors->first('email') }}</p>
                     @endif
 
                 </div>
@@ -76,7 +76,23 @@
                     </div>
 
                     @if ($errors->has('phone'))
-                        <p class="red-text">{{ $errors->first('phone') }}</p>
+                        <p class="text-danger">{{ $errors->first('phone') }}</p>
+                    @endif
+
+                </div>
+
+                <div class="col-12">
+                    <div class="md-form px-4 pt-2 mb-0">
+                        <input type="text" id="school" name="school" class="form-control text-white"
+                               value="{{ old('school') ? old('school') : '' }}"
+                               placeholder="Enter School Name"/>
+                        <label for="phone" class="active"><span
+                                class="border rounded-7 font-small p-1">05</span>&nbsp;
+                            School</label>
+                    </div>
+
+                    @if ($errors->has('school'))
+                        <p class="text-danger">{{ $errors->first('school') }}</p>
                     @endif
 
                 </div>
@@ -84,8 +100,8 @@
                 <div class="col-12">
                     <div class="md-form text-start">
                         <div class="">
-                            <span class="border rounded-6 p-1 text-white" style="font-size: 0.75rem;">05</span>&nbsp;
-                            <span class="font-small text-start text-white" style="font-size: 0.8rem;">Select Current Grade</span>
+                            <span class="border rounded-6 p-1 text-white" style="font-size: 0.75rem;">06</span>&nbsp;
+                            <span class="font-small text-start text-white" style="font-size: 0.8rem;">Select Grade For 2026/2027 School Year</span>
                         </div>
 
                         <div class="border-1 border-bottom mt-2 mx-4">
@@ -100,22 +116,41 @@
                     </div>
                 </div>
 
-                <div class="col-12">
-                    <div class="md-form text-start mt-1">
-                        <div class="">
-                            <span class="border rounded-6 p-1 text-white" style="font-size: 0.75rem;">06</span>&nbsp;
-                            <span class="font-small text-start text-white" style="font-size: 0.8rem;">Select Current School</span>
-                        </div>
+{{--                <div class="col-12">--}}
+{{--                    <div class="md-form text-start">--}}
+{{--                        <div class="">--}}
+{{--                            <span class="border rounded-6 p-1 text-white" style="font-size: 0.75rem;">05</span>&nbsp;--}}
+{{--                            <span class="font-small text-start text-white" style="font-size: 0.8rem;">Select Current Grade</span>--}}
+{{--                        </div>--}}
 
-                        <div class="border-1 border-bottom mt-2 mx-4">
-                            <select type="text" id="school" name="school" class="w-100"
-                                    value="{{ old('school') ? old('school') : '' }}" data-mdb-select-init>
-                                <option value="carver" selected>Carver HSES</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+{{--                        <div class="border-1 border-bottom mt-2 mx-4">--}}
+{{--                            <select type="text" id="grade" name="grade" class="w-100"--}}
+{{--                                    value="{{ old('grade') ? old('grade') : '' }}" data-mdb-select-init>--}}
+{{--                                <option value="9" selected>9th Grade</option>--}}
+{{--                                <option value="10">10th Grade</option>--}}
+{{--                                <option value="11">11th Grade</option>--}}
+{{--                                <option value="12">12th Grade</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-12">--}}
+{{--                    <div class="md-form text-start mt-1">--}}
+{{--                        <div class="">--}}
+{{--                            <span class="border rounded-6 p-1 text-white" style="font-size: 0.75rem;">06</span>&nbsp;--}}
+{{--                            <span class="font-small text-start text-white" style="font-size: 0.8rem;">Select Current School</span>--}}
+{{--                        </div>--}}
+
+{{--                        <div class="border-1 border-bottom mt-2 mx-4">--}}
+{{--                            <select type="text" id="school" name="school" class="w-100"--}}
+{{--                                    value="{{ old('school') ? old('school') : '' }}" data-mdb-select-init>--}}
+{{--                                <option value="carver" selected>Carver HSES</option>--}}
+{{--                                <option value="other">Other</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
 
             <div class="row">
@@ -150,7 +185,7 @@
                     </div>
 
                     @if ($errors->has('parent_first_name'))
-                        <p class="red-text">{{ $errors->first('parent_first_name') }}</p>
+                        <p class="text-danger">{{ $errors->first('parent_first_name') }}</p>
                     @endif
 
                 </div>
@@ -168,7 +203,7 @@
                     </div>
 
                     @if ($errors->has('parent_last_name'))
-                        <p class="red-text">{{ $errors->first('parent_last_name') }}</p>
+                        <p class="text-danger">{{ $errors->first('parent_last_name') }}</p>
                     @endif
 
                 </div>
@@ -185,7 +220,7 @@
                     </div>
 
                     @if ($errors->has('parent_email'))
-                        <p class="red-text">{{ $errors->first('parent_email') }}</p>
+                        <p class="text-danger">{{ $errors->first('parent_email') }}</p>
                     @endif
 
                 </div>
@@ -201,7 +236,7 @@
                     </div>
 
                     @if ($errors->has('parent_phone'))
-                        <p class="red-text">{{ $errors->first('parent_phone') }}</p>
+                        <p class="text-danger">{{ $errors->first('parent_phone') }}</p>
                     @endif
 
                 </div>

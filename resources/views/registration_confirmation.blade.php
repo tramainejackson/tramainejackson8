@@ -161,7 +161,7 @@
                                         </div>
 
                                         @if ($errors->has('parent_first_name'))
-                                            <p class="red-text">{{ $errors->first('parent_first_name') }}</p>
+                                            <p class="text-danger">{{ $errors->first('parent_first_name') }}</p>
                                         @endif
 
                                     </div>
@@ -180,7 +180,7 @@
                                         </div>
 
                                         @if ($errors->has('parent_last_name'))
-                                            <p class="red-text">{{ $errors->first('parent_last_name') }}</p>
+                                            <p class="text-danger">{{ $errors->first('parent_last_name') }}</p>
                                         @endif
 
                                     </div>
@@ -198,7 +198,7 @@
                                         </div>
 
                                         @if ($errors->has('parent_email'))
-                                            <p class="red-text">{{ $errors->first('parent_email') }}</p>
+                                            <p class="text-danger">{{ $errors->first('parent_email') }}</p>
                                         @endif
 
                                     </div>
@@ -215,7 +215,7 @@
                                         </div>
 
                                         @if ($errors->has('parent_phone'))
-                                            <p class="red-text">{{ $errors->first('parent_phone') }}</p>
+                                            <p class="text-danger">{{ $errors->first('parent_phone') }}</p>
                                         @endif
 
                                     </div>

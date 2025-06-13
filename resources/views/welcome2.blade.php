@@ -52,7 +52,7 @@
         <div class="col-11 mx-auto pt-4 pt-md-5 d-flex flex-column align-items-center justify-content-start">
 
             <div id="hbcu_tour" class="mw-100 mb-5 m-lg-5 px-lg-5">
-                <img src="{{ asset('/images/hbcu_college_tour_banner.png') }}" class="img-fluid"
+                <img src="{{ asset('/images/hbcu_college_tour_2026_banner.png') }}" class="img-fluid"
                      alt="Reunion Banner">
             </div>
 
@@ -67,9 +67,9 @@
              data-mdb-animation-show-on-load=false>
             <h1 class="px-5">Welcome to the registration for the HBCU College Tour.</h1>
 
-            <h4 class="px-5">We're sorry but we have currently reached the maximum number of guest for this upcoming
-                tour. If you have already registered, we have your email address on file and you will be notified first
-                for any upcoming tours.</h4>
+{{--            <h4 class="px-5">We're sorry but we have currently reached the maximum number of guest for this upcoming--}}
+{{--                tour. If you have already registered, we have your email address on file and you will be notified first--}}
+{{--                for any upcoming tours.</h4>--}}
 
             <!-- ITINERARY -->
             {{--            <div class="row mt-4">--}}
@@ -114,7 +114,7 @@
         </div>
     </div>
 
-    {{--    @include('components.hbcu_tour_registration')--}}
+        @include('components.hbcu_tour_registration')
 </div>
 
 {{--FOOTER--}}

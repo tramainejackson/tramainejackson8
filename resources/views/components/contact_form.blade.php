@@ -45,7 +45,7 @@
                     {{--							</div>--}}
 
                     {{--							@if($errors->has('message_name'))--}}
-                    {{--								<div class="red-text">--}}
+                    {{--								<div class="text-danger">--}}
                     {{--									<span class="">{{ $errors->first('message_name') }}</span>--}}
                     {{--								</div>--}}
                     {{--							@endif--}}
@@ -62,7 +62,7 @@
                     {{--							</div>--}}
 
                     {{--							@if($errors->has('message_email'))--}}
-                    {{--								<div class="red-text">--}}
+                    {{--								<div class="text-danger">--}}
                     {{--									<span class="">{{ $errors->first('message_email') }}</span>--}}
                     {{--								</div>--}}
                     {{--							@endif--}}
@@ -81,7 +81,7 @@
                     {{--							</div>--}}
 
                     {{--							@if($errors->has('message_subject'))--}}
-                    {{--								<div class="red-text">--}}
+                    {{--								<div class="text-danger">--}}
                     {{--									<span class="">{{ $errors->first('message_subject') }}</span>--}}
                     {{--								</div>--}}
                     {{--							@endif--}}
@@ -100,7 +100,7 @@
                     {{--							</div>--}}
 
                     {{--							@if($errors->has('message_body'))--}}
-                    {{--								<div class="red-text">--}}
+                    {{--								<div class="text-danger">--}}
                     {{--									<span class="">{{ $errors->first('message_body') }}</span>--}}
                     {{--								</div>--}}
                     {{--							@endif--}}

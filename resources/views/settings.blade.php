@@ -79,7 +79,7 @@
                     </div>
 
                     @if ($errors->has('phone'))
-                        <span class="red-text">
+                        <span class="text-danger">
 							<strong>{{ $errors->first('phone') }}</strong>
 						</span>
                     @endif
@@ -92,7 +92,7 @@
                     </div>
 
                     @if($errors->has('email'))
-                        <span class="red-text">
+                        <span class="text-danger">
 							<strong>{{ $errors->first('email') }}</strong>
 						</span>
                     @endif

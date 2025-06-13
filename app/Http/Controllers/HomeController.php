@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 //use App\Mail\NewMessage;
+use App\Mail\Registration_Admin;
 use App\Models\Customers;
 use App\Models\Setting;
 use App\Models\Website;
@@ -10,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
@@ -161,6 +163,7 @@ class HomeController extends Controller
                 'last_name' => 'required|string',
                 'email' => 'required|email',
                 'phone' => 'nullable',
+                'school' => 'required|string',
             ]);
 
             $customer = new Customers();
@@ -194,7 +197,13 @@ class HomeController extends Controller
                     if ($parent->save()) {
                     }
                 }
-                return redirect()->action([HomeController::class, 'hbcu_college_tour_confirmation'], ['confirmation' => $customer->confirmation])->with('status', 'Your registration was completed successfully.');
+
+                Mail::to($customer->email)->send(new Registration_Admin($customer));
+                Mail::to('jackson.tramaine3@yahoo.com')->send(new Registration_Admin($customer));
+//                Mail::to('hbcucollegetour215@gmail.com')->send(new Registration_Admin($customer));
+
+                return back()->with('status', 'Your registration was completed successfully. You will receive an email shortly acknowledging that we received this registration.');
+//                return redirect()->action([HomeController::class, 'hbcu_college_tour_confirmation'], ['confirmation' => $customer->confirmation])->with('status', 'Your registration was completed successfully.');
             } else {
                 return back()->with('bad_status', 'Form not submitted. Please try again.')->withInput();
             }

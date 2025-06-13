@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Tramaine Jackson LLC'),
+    'name' => env('APP_NAME', 'Tramaine Jackson Tech LLC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'EST',
+    'timezone' => 'America/New_York',
 
     /*
     |--------------------------------------------------------------------------
