@@ -97,17 +97,17 @@
 
                 </div>
 
-                <div class="col-12">
-                    <div class="md-form text-start">
+                <div class="col-12 mt-2">
+                    <div class="text-start">
                         <div class="">
                             <span class="border rounded-6 p-1 text-white" style="font-size: 0.75rem;">06</span>&nbsp;
-                            <span class="font-small text-start text-white" style="font-size: 0.8rem;">Select Grade For 2026/2027 School Year</span>
+                            <span class="font-small text-start text-white" style="font-size: 0.8rem;">Select Grade For 2025/2026 School Year</span>
                         </div>
 
-                        <div class="border-1 border-bottom mt-2 mx-4">
-                            <select type="text" id="grade" name="grade" class="w-100"
+                        <div class="mx-4 mt-1">
+                            <select type="text" id="grade" name="grade"
                                     value="{{ old('grade') ? old('grade') : '' }}" data-mdb-select-init>
-                                <option value="9" selected>9th Grade</option>
+                                <option class="" value="9" selected>9th Grade</option>
                                 <option value="10">10th Grade</option>
                                 <option value="11">11th Grade</option>
                                 <option value="12">12th Grade</option>
@@ -241,15 +241,15 @@
 
                 </div>
 
-                <div class="col-12">
-                    <div class="md-form text-start mt-1">
+                <div class="col-12 mt-2">
+                    <div class="text-start mt-1">
                         <div class="">
                             <span class="border rounded-6 p-1 text-white" style="font-size: 0.70rem;">05</span>&nbsp;
                             <span class="font-small text-start text-white" style="font-size: 0.75rem;">Are you planning on attending the tours?</span>
                         </div>
 
-                        <div class="border-1 border-bottom mt-2 mx-4">
-                            <select type="text" id="parent_attending" name="parent_attending" class="w-100"
+                        <div class="mx-4 mt-1">
+                            <select type="text" id="parent_attending" name="parent_attending"
                                     value="{{ old('parent_attending') ? old('parent_attending') : '' }}"
                                     data-mdb-select-init>
                                 <option value="Y">Yes</option>
@@ -259,15 +259,15 @@
                     </div>
                 </div>
 
-                <div class="col-12">
-                    <div class="md-form text-start mt-1">
+                <div class="col-12 mt-2">
+                    <div class="text-start mt-1">
                         <div class="">
                             <span class="border rounded-6 p-1 text-white" style="font-size: 0.70rem;">06</span>&nbsp;
                             <span class="font-small text-start text-white" style="font-size: 0.75rem;">Volunteer To Be Chaperone?</span>
                         </div>
 
-                        <div class="border-1 border-bottom mt-2 mx-4">
-                            <select type="text" id="chaperone" name="chaperone" class="w-100"
+                        <div class="mx-4 mt-1">
+                            <select type="text" id="chaperone" name="chaperone"
                                     value="{{ old('chaperone') ? old('chaperone') : '' }}" data-mdb-select-init>
                                 <option value="Y">Yes</option>
                                 <option value="N" selected>No</option>

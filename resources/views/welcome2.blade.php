@@ -115,6 +115,36 @@
     </div>
 
         @include('components.hbcu_tour_registration')
+
+    <div
+        class="alert fade"
+        id="return-data-alert"
+        role="alert"
+        data-mdb-color="success"
+        data-mdb-position="top-right"
+        data-mdb-stacking="true"
+        data-mdb-width="300px"
+        data-mdb-append-to-body="true"
+        data-mdb-hidden="true"
+        data-mdb-autohide="true"
+        data-mdb-delay="4000">
+        <p class="alertBody m-0 p-0 text-center"></p>
+    </div>
+
+    <div
+        class="alert fade"
+        id="return-data-alert-bad"
+        role="alert"
+        data-mdb-color="danger"
+        data-mdb-position="top-right"
+        data-mdb-stacking="true"
+        data-mdb-width="300px"
+        data-mdb-append-to-body="true"
+        data-mdb-hidden="true"
+        data-mdb-autohide="true"
+        data-mdb-delay="4000">
+        <p class="alertBody m-0 p-0 text-center"></p>
+    </div>
 </div>
 
 {{--FOOTER--}}
@@ -123,19 +153,24 @@
 </div>
 
 <!-- Bootstrap core -->
-<script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
+<script type="module" src="{{ asset('js/mdb.es.min.js') }}"></script>
 <!-- Custom Scripts -->
-<script type="text/javascript" src="{{ asset('js/myjs_functions.js') }}"></script>
+<script type="module" src="{{ asset('js/myjs_modules.js') }}"></script>
+<script type="module" src="{{ asset('js/myjs_functions.js') }}"></script>
 
 @if(session('status'))
-    <script type="text/javascript">
+    <script type="module">
+        import {Alert} from "{{ asset('/js/mdb.es.min.js') }}";
+
         document.getElementsByClassName('alertBody')[0].innerHTML = '{{ session('status') }}';
-        mdb.Alert.getInstance(document.getElementById('return-data-alert')).show();
+        new Alert(document.getElementById('return-data-alert')).show();
     </script>
 @elseif(session('bad_status'))
-    <script type="text/javascript">
+    <script type="module">
+        import {Alert} from "{{ asset('/js/mdb.es.min.js') }}";
+
         document.getElementsByClassName('alertBody')[1].innerHTML = '{{ session('bad_status') }}';
-        mdb.Alert.getInstance(document.getElementById('return-data-alert-bad')).show();
+        new Alert(document.getElementById('return-data-alert-bad')).show();
     </script>
 @endif
 

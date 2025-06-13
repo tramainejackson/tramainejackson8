@@ -10,6 +10,7 @@ use App\Models\Website;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -175,32 +176,36 @@ class HomeController extends Controller
             $customer->school = $request->school;
             $customer->confirmation = Str::random(50);
 
+            //Add parent information if added
+            $customer->parent_first_name = $request->parent_first_name;
+            $customer->parent_last_name = $request->parent_last_name;
+            $customer->parent_email = $request->parent_email;
+            $customer->parent_phone = $request->parent_phone;
+            $customer->parent_attending = $request->parent_attending;
+            $customer->chaperone = $request->chaperone;
+
             //Just add a message to the log just in case something isn't
             //picked up when saving
             info('Someone tried saving info.' . $customer);
 
-            if ($request->parent_first_name || $request->parent_last_name) {
-                $parent = new Customers();
-                $parent->parent_first_name = $request->parent_first_name;
-                $parent->parent_last_name = $request->parent_last_name;
-                $parent->parent_email = $request->parent_email;
-                $parent->parent_phone = $request->parent_phone;
-                $parent->parent_attending = $request->parent_attending;
-                $parent->chaperone = $request->chaperone;
-                $parent->confirmation = $customer->confirmation;
-
-                info('Someone tried saving info.' . $parent);
-            }
-
             if ($customer->save()) {
-                if ($request->parent_first_name || $request->parent_last_name) {
-                    if ($parent->save()) {
-                    }
-                }
+//                if ($request->parent_first_name || $request->parent_last_name) {
+//                    if ($parent->save()) {
+//                    }
+//                }
 
-                Mail::to($customer->email)->send(new Registration_Admin($customer));
-                Mail::to('jackson.tramaine3@yahoo.com')->send(new Registration_Admin($customer));
-//                Mail::to('hbcucollegetour215@gmail.com')->send(new Registration_Admin($customer));
+                if (App::environment('local')) {
+                    Mail::to('jackson.tramaine3@gmail.com')->send(new Registration_Admin($customer));
+                } else {
+                    if($customer->parent_email != null) {
+                        Mail::to($customer->parent_email)->send(new Registration_Admin($customer));
+                    } else {
+                        Mail::to($customer->email)->send(new Registration_Admin($customer));
+                    }
+
+                    Mail::to('jackson.tramaine3@yahoo.com')->send(new Registration_Admin($customer));
+                    Mail::to('hbcucollegetour215@gmail.com')->send(new Registration_Admin($customer));
+                }
 
                 return back()->with('status', 'Your registration was completed successfully. You will receive an email shortly acknowledging that we received this registration.');
 //                return redirect()->action([HomeController::class, 'hbcu_college_tour_confirmation'], ['confirmation' => $customer->confirmation])->with('status', 'Your registration was completed successfully.');

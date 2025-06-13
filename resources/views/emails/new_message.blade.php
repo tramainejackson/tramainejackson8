@@ -362,7 +362,7 @@
                                                             <td align="left"
                                                                 style="padding:0;Margin:0;padding-bottom:15px;"><h2
                                                                     style="Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#333333;">
-                                                                    Hey Family,</h2>
+                                                                    Hello,</h2>
                                                             </td>
                                                         </tr>
 
@@ -370,12 +370,9 @@
                                                             <td align="left"
                                                                 style="padding:0;Margin:0;padding-top:20px;"><p
                                                                     style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">
-                                                                    Thank you for registering online for
-                                                                    the {{ $reunion->reunion_year }} Family Reunion
-                                                                    Registration which will be located
-                                                                    in {{ $reunion->reunion_city . ', ' . $reunion->reunion_state }}
-                                                                    . If you have any questions please feel free to
-                                                                    reach out to us anytime.</p>
+                                                                    Thank you for pre-registering online for
+                                                                    the HBCU Tour 2026. We are excited to bring another
+                                                                    exciting tour of our beloved HBCU's.</p>
                                                             </td>
                                                         </tr>
 
@@ -383,23 +380,24 @@
                                                             <td align="left"
                                                                 style="padding:0;Margin:0;padding-top:15px;"><p
                                                                     style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">
-                                                                    Below is all the information that we received on
+                                                                    Below is all the information that we received from
                                                                     your registration form. If any of this information
-                                                                    is incorrect, please respond to this email so that
-                                                                    we can correct the information.</p>
+                                                                    is incorrect, please respond to
+                                                                    hbcucollegetour215@gmail.com to get it
+                                                                    corrected.</p>
                                                             </td>
                                                         </tr>
 
-                                                        <tr style="border-collapse:collapse;">
-                                                            <td align="left"
-                                                                style="padding:0;Margin:0;padding-top:15px;"><p
-                                                                    style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">
-                                                                    Your Total Amount Due is $<span
-                                                                        style="color:darkred;">{{ $registration->total_amount_due }}.</span>
-                                                                    The total amount due needs to be paid in full at
-                                                                    least one month before the reunion.</p>
-                                                            </td>
-                                                        </tr>
+                                                        {{--                                                        <tr style="border-collapse:collapse;">--}}
+                                                        {{--                                                            <td align="left"--}}
+                                                        {{--                                                                style="padding:0;Margin:0;padding-top:15px;"><p--}}
+                                                        {{--                                                                    style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">--}}
+                                                        {{--                                                                    Your Total Amount Due is $<span--}}
+                                                        {{--                                                                        style="color:darkred;">{{ $registration->total_amount_due }}.</span>--}}
+                                                        {{--                                                                    The total amount due needs to be paid in full at--}}
+                                                        {{--                                                                    least one month before the reunion.</p>--}}
+                                                        {{--                                                            </td>--}}
+                                                        {{--                                                        </tr>--}}
 
                                                         <tr style="border-collapse:collapse;">
                                                             <td align="left"
@@ -407,34 +405,85 @@
                                                                 <ul style="list-style: none; padding-left: 0px;">
                                                                     <li style="margin-left: 0px;">
                                                                         <span
-                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Registree:</span>
+                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Student Name:</span>
                                                                         <span
-                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ ucwords($registration->registree_name) }}</span>
+                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ ucwords($customers->first_name) . ' ' . ucwords($customers->last_name) }}</span>
                                                                     </li>
 
                                                                     <li style="margin-left: 0px;">
                                                                         <span
-                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Email Address:</span>
+                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Student Email Address:</span>
                                                                         <span
-                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ $registration->email != null ? $registration->email : 'No Email Address Added' }}</span>
+                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ $customers->email != null ? $customers->email : 'No Email Address Added' }}</span>
                                                                     </li>
 
                                                                     <li style="margin-left: 0px;">
                                                                         <span
-                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Phone:</span>
+                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Student Phone Number:</span>
                                                                         <span
-                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ $registration->phone != null ? $registration->phone : 'No Phone Number Added' }}</span>
+                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ $customers->phone != null ? $customers->phone : 'No Phone Number Added' }}</span>
                                                                     </li>
 
                                                                     <li style="margin-left: 0px;">
                                                                         <span
-                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Address:</span>
+                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Student Grade (25/26 School Year):</span>
                                                                         <span
-                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ $registration->address . ' ' . $registration->city . ', ' . $registration->state . ' '. $registration->zip }}</span>
+                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ $customers->grade . 'th' }}</span>
+                                                                    </li>
+
+                                                                    <li style="margin-left: 0px;">
+                                                                        <span
+                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Student School:</span>
+                                                                        <span
+                                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ ucwords(strtolower($customers->school)) }}</span>
                                                                     </li>
                                                                 </ul>
                                                             </td>
                                                         </tr>
+
+                                                        @if($customers->parent_first_name != null || $customers->parent_last_name != null)
+                                                            <tr style="border-collapse:collapse;">
+                                                                <td align="left"
+                                                                    style="padding:0;Margin:0;padding-top:15px;">
+                                                                    <ul style="list-style: none; padding-left: 0px;">
+                                                                        <li style="margin-left: 0px;">
+                                                                        <span
+                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Parent Name:</span>
+                                                                            <span
+                                                                                style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ ucwords($customers->parent_first_name) . ' ' . ucwords($customers->parent_last_name) }}</span>
+                                                                        </li>
+
+                                                                        <li style="margin-left: 0px;">
+                                                                        <span
+                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Parent Email Address:</span>
+                                                                            <span
+                                                                                style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ $customers->parent_email != null ? $customers->parent_email : 'No Email Address Added' }}</span>
+                                                                        </li>
+
+                                                                        <li style="margin-left: 0px;">
+                                                                        <span
+                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Parent Phone Number:</span>
+                                                                            <span
+                                                                                style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ $customers->parent_phone != null ? $customers->parent_phone : 'No Phone Number Added' }}</span>
+                                                                        </li>
+
+                                                                        <li style="margin-left: 0px;">
+                                                                        <span
+                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Would Parent Like To Attend:</span>
+                                                                            <span
+                                                                                style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ $customers->parent_attending == 'Y' ? 'Yes' : 'No' }}</span>
+                                                                        </li>
+
+                                                                        <li style="margin-left: 0px;">
+                                                                        <span
+                                                                            style="text-decoration: underline; font-weight: bold; Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">Parent Volunteer To Chaperone:</span>
+                                                                            <span
+                                                                                style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;"> {{ $customers->chaperone == 'Y' ? 'Yes' : 'No' }}</span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                        @endif
 
                                                         <tr style="border-collapse:collapse;">
                                                             <td align="left"
@@ -465,113 +514,113 @@
                     </tbody>
                 </table>
 
-                <table class="es-footer" cellspacing="0" cellpadding="0" align="center"
-                       style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%;background-color:transparent;background-repeat:repeat;background-position:center top;">
-                    <tbody>
-                    <tr style="border-collapse:collapse;">
-                        <td align="center" style="padding:0;Margin:0;">
-                            <table class="es-footer-body" width="600" cellspacing="0" cellpadding="0" align="center"
-                                   style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:transparent;">
-                                <tbody>
-                                <tr style="border-collapse:collapse;">
-                                    <td align="left"
-                                        style="Margin:0;padding-top:20px;padding-bottom:20px;padding-left:20px;padding-right:20px;">
-                                        <table width="100%" cellspacing="0" cellpadding="0"
-                                               style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
-                                            <tbody>
-                                            <tr style="border-collapse:collapse;">
-                                                <td width="560" valign="top" align="center" style="padding:0;Margin:0;">
-                                                    <table width="100%" cellspacing="0" cellpadding="0"
-                                                           role="presentation"
-                                                           style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
-                                                        <tbody>
-                                                        <tr style="border-collapse:collapse;">
-                                                            <td align="center"
-                                                                style="padding:20px;Margin:0;font-size:0;">
-                                                                <table width="75%" height="100%" cellspacing="0"
-                                                                       cellpadding="0" border="0" role="presentation"
-                                                                       style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
-                                                                    <tbody>
-                                                                    <tr style="border-collapse:collapse;">
-                                                                        <td style="padding:0;Margin:0px 0px 0px 0px;border-bottom:1px solid #CCCCCC;background:none;height:1px;width:100%;margin:0px;"></td>
-                                                                    </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr style="border-collapse:collapse;">
-                                    <td align="left"
-                                        style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px;">
-                                        <!--[if mso]>
-                                        <table width="560" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td width="270" valign="top"><![endif]-->
-                                        <table cellpadding="0" cellspacing="0" class="es-left" align="left"
-                                               style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left;">
-                                            <tbody>
-                                            <tr style="border-collapse:collapse;">
-                                                <td width="270" class="es-m-p20b" align="left"
-                                                    style="padding:0;Margin:0;">
-                                                    <table cellpadding="0" cellspacing="0" width="100%"
-                                                           role="presentation"
-                                                           style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
-                                                        <tbody>
-                                                        <tr style="border-collapse:collapse;">
-                                                            <td align="center" style="padding:0;Margin:0;"><p
-                                                                    style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:11px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:17px;color:#333333;">
-                                                                    <a target="_blank"
-                                                                       href="https://jgreunion.com/"
-                                                                       style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;text-decoration:underline;color:#1376C8;">Website</a>
-                                                                </p></td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <!--[if mso]></td>
-                                        <td width="20"></td>
-                                        <td width="270" valign="top"><![endif]-->
-                                        <table cellpadding="0" cellspacing="0" class="es-right" align="right"
-                                               style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:right;">
-                                            <tbody>
-                                            <tr style="border-collapse:collapse;">
-                                                <td width="270" align="left" style="padding:0;Margin:0;">
-                                                    <table cellpadding="0" cellspacing="0" width="100%"
-                                                           role="presentation"
-                                                           style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
-                                                        <tbody>
-                                                        <tr style="border-collapse:collapse;">
-                                                            <td align="center" style="padding:0;Margin:0;"><p
-                                                                    style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:20px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:30px;color:#333333;">
-                                                                    <a target="_blank"
-                                                                       style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;text-decoration:underline;color:#1376C8;"
-                                                                       href="https://jgreunion.com/contact">Contact</a>
-                                                                </p></td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <!--[if mso]></td></tr></table><![endif]--></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                {{--                <table class="es-footer" cellspacing="0" cellpadding="0" align="center"--}}
+                {{--                       style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%;background-color:transparent;background-repeat:repeat;background-position:center top;">--}}
+                {{--                    <tbody>--}}
+                {{--                    <tr style="border-collapse:collapse;">--}}
+                {{--                        <td align="center" style="padding:0;Margin:0;">--}}
+                {{--                            <table class="es-footer-body" width="600" cellspacing="0" cellpadding="0" align="center"--}}
+                {{--                                   style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:transparent;">--}}
+                {{--                                <tbody>--}}
+                {{--                                <tr style="border-collapse:collapse;">--}}
+                {{--                                    <td align="left"--}}
+                {{--                                        style="Margin:0;padding-top:20px;padding-bottom:20px;padding-left:20px;padding-right:20px;">--}}
+                {{--                                        <table width="100%" cellspacing="0" cellpadding="0"--}}
+                {{--                                               style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">--}}
+                {{--                                            <tbody>--}}
+                {{--                                            <tr style="border-collapse:collapse;">--}}
+                {{--                                                <td width="560" valign="top" align="center" style="padding:0;Margin:0;">--}}
+                {{--                                                    <table width="100%" cellspacing="0" cellpadding="0"--}}
+                {{--                                                           role="presentation"--}}
+                {{--                                                           style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">--}}
+                {{--                                                        <tbody>--}}
+                {{--                                                        <tr style="border-collapse:collapse;">--}}
+                {{--                                                            <td align="center"--}}
+                {{--                                                                style="padding:20px;Margin:0;font-size:0;">--}}
+                {{--                                                                <table width="75%" height="100%" cellspacing="0"--}}
+                {{--                                                                       cellpadding="0" border="0" role="presentation"--}}
+                {{--                                                                       style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">--}}
+                {{--                                                                    <tbody>--}}
+                {{--                                                                    <tr style="border-collapse:collapse;">--}}
+                {{--                                                                        <td style="padding:0;Margin:0px 0px 0px 0px;border-bottom:1px solid #CCCCCC;background:none;height:1px;width:100%;margin:0px;"></td>--}}
+                {{--                                                                    </tr>--}}
+                {{--                                                                    </tbody>--}}
+                {{--                                                                </table>--}}
+                {{--                                                            </td>--}}
+                {{--                                                        </tr>--}}
+                {{--                                                        </tbody>--}}
+                {{--                                                    </table>--}}
+                {{--                                                </td>--}}
+                {{--                                            </tr>--}}
+                {{--                                            </tbody>--}}
+                {{--                                        </table>--}}
+                {{--                                    </td>--}}
+                {{--                                </tr>--}}
+                {{--                                <tr style="border-collapse:collapse;">--}}
+                {{--                                    <td align="left"--}}
+                {{--                                        style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px;">--}}
+                {{--                                        <!--[if mso]>--}}
+                {{--                                        <table width="560" cellpadding="0" cellspacing="0">--}}
+                {{--                                            <tr>--}}
+                {{--                                                <td width="270" valign="top"><![endif]-->--}}
+                {{--                                        <table cellpadding="0" cellspacing="0" class="es-left" align="left"--}}
+                {{--                                               style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left;">--}}
+                {{--                                            <tbody>--}}
+                {{--                                            <tr style="border-collapse:collapse;">--}}
+                {{--                                                <td width="270" class="es-m-p20b" align="left"--}}
+                {{--                                                    style="padding:0;Margin:0;">--}}
+                {{--                                                    <table cellpadding="0" cellspacing="0" width="100%"--}}
+                {{--                                                           role="presentation"--}}
+                {{--                                                           style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">--}}
+                {{--                                                        <tbody>--}}
+                {{--                                                        <tr style="border-collapse:collapse;">--}}
+                {{--                                                            <td align="center" style="padding:0;Margin:0;"><p--}}
+                {{--                                                                    style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:11px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:17px;color:#333333;">--}}
+                {{--                                                                    <a target="_blank"--}}
+                {{--                                                                       href="https://jgreunion.com/"--}}
+                {{--                                                                       style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;text-decoration:underline;color:#1376C8;">Website</a>--}}
+                {{--                                                                </p></td>--}}
+                {{--                                                        </tr>--}}
+                {{--                                                        </tbody>--}}
+                {{--                                                    </table>--}}
+                {{--                                                </td>--}}
+                {{--                                            </tr>--}}
+                {{--                                            </tbody>--}}
+                {{--                                        </table>--}}
+                {{--                                        <!--[if mso]></td>--}}
+                {{--                                        <td width="20"></td>--}}
+                {{--                                        <td width="270" valign="top"><![endif]-->--}}
+                {{--                                        <table cellpadding="0" cellspacing="0" class="es-right" align="right"--}}
+                {{--                                               style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:right;">--}}
+                {{--                                            <tbody>--}}
+                {{--                                            <tr style="border-collapse:collapse;">--}}
+                {{--                                                <td width="270" align="left" style="padding:0;Margin:0;">--}}
+                {{--                                                    <table cellpadding="0" cellspacing="0" width="100%"--}}
+                {{--                                                           role="presentation"--}}
+                {{--                                                           style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">--}}
+                {{--                                                        <tbody>--}}
+                {{--                                                        <tr style="border-collapse:collapse;">--}}
+                {{--                                                            <td align="center" style="padding:0;Margin:0;"><p--}}
+                {{--                                                                    style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:20px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:30px;color:#333333;">--}}
+                {{--                                                                    <a target="_blank"--}}
+                {{--                                                                       style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;text-decoration:underline;color:#1376C8;"--}}
+                {{--                                                                       href="https://jgreunion.com/contact">Contact</a>--}}
+                {{--                                                                </p></td>--}}
+                {{--                                                        </tr>--}}
+                {{--                                                        </tbody>--}}
+                {{--                                                    </table>--}}
+                {{--                                                </td>--}}
+                {{--                                            </tr>--}}
+                {{--                                            </tbody>--}}
+                {{--                                        </table>--}}
+                {{--                                        <!--[if mso]></td></tr></table><![endif]--></td>--}}
+                {{--                                </tr>--}}
+                {{--                                </tbody>--}}
+                {{--                            </table>--}}
+                {{--                        </td>--}}
+                {{--                    </tr>--}}
+                {{--                    </tbody>--}}
+                {{--                </table>--}}
                 <table class="es-content" cellspacing="0" cellpadding="0" align="center"
                        style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%;">
                     <tbody>
@@ -611,7 +660,7 @@
                                                             <td align="center"
                                                                 style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px;">
                                                                 <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;">
-                                                                    © 2020 Tramaine Jackson Tech</p></td>
+                                                                    © 2025 Tramaine Jackson Tech LLC</p></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>

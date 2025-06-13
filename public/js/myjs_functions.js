@@ -1,3 +1,5 @@
+import {Input, Select, Datepicker, initMDB} from './mdb.es.min.js';
+
 function showSponsor(btn) {
     let confirmationInput = btn.nextElementSibling.cloneNode();
     let sponsorForm = document.getElementsByTagName('form');
@@ -48,6 +50,9 @@ function submitSponsor() {
         }
     }
 }
+
+export {showSponsor}
+export {submitSponsor}
 
 // function selectSwitch(btn) {
 //     let btnParent = btn.parentElement;
