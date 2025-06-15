@@ -59,9 +59,9 @@
         </div>
 
         <div class="text-light font1 mt-1" style="z-index: 1"
+             data-mdb-animation-init
              data-mdb-toggle="animation"
              data-mdb-animation="fly-in-down"
-             data-mdb-animation-delay=2000
              data-mdb-animation-start="onScroll"
              data-mdb-animation-duration=2000
              data-mdb-animation-show-on-load=false>

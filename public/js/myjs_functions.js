@@ -1,4 +1,4 @@
-import {Input, Select, Datepicker, initMDB} from './mdb.es.min.js';
+import {Input, Select, Datepicker, Animate, initMDB} from './mdb.es.min.js';
 
 function showSponsor(btn) {
     let confirmationInput = btn.nextElementSibling.cloneNode();

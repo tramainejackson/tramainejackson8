@@ -1,5 +1,6 @@
 import {
     Input,
+    Animate,
     Alert,
     Datepicker,
     Datatable,
@@ -15,6 +16,7 @@ import {
 
 //init
 initMDB({Input});
+initMDB({Animate});
 initMDB({Alert});
 initMDB({Datepicker});
 initMDB({Datatable});
