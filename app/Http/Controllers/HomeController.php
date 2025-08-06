@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
@@ -25,6 +26,25 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except('portfolio1', 'portfolio2', 'portfolio2_about', 'index', 'questionnaire', 'store_questionnaire', 'hbcu_college_tour', 'hbcu_college_tour_confirmation', 'hbcu_college_tour_registrations', 'contact_post', 'hbcu_college_tour_sponsors', 'hbcu_college_tour_sponsors_confirmation');
+
+        if(count(\request()->input()) >= 1) {
+            $output = "\"parameters\": { \n";
+
+            foreach (\request()->input() as $parameter => $value) {
+                if(is_array($value)) {
+                    $value = implode(',', $value);
+                }
+
+                $output .= "\"" . $parameter . "\": " . "\"" . $value . "\", ";
+            }
+
+            $output .= "}";
+
+            Log::info($output);
+        }
+
+        //Track reunion registrations attempts
+        Log::info(url()->current());
     }
 
     /**

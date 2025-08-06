@@ -7,6 +7,7 @@ use App\Mail\PaymentReminder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 use Carbon\Carbon;
@@ -21,6 +22,25 @@ class WebsiteController extends Controller
 	public function __construct()
 	{
 		$this->middleware('auth');
+
+        if(count(\request()->input()) >= 1) {
+            $output = "\"parameters\": { \n";
+
+            foreach (\request()->input() as $parameter => $value) {
+                if(is_array($value)) {
+                    $value = implode(',', $value);
+                }
+
+                $output .= "\"" . $parameter . "\": " . "\"" . $value . "\", ";
+            }
+
+            $output .= "}";
+
+            Log::info($output);
+        }
+
+        //Track reunion registrations attempts
+        Log::info(url()->current());
 	}
 
 	/**
