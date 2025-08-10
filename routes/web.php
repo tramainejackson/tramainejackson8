@@ -23,9 +23,9 @@ Route::resources([
     'questionnaires' => QuestionnaireController::class,
 ]);
 
-Route::get('/test', function () {
-    return view('test');
-});
+//Route::get('/test', function () {
+//    return view('test');
+//});
 
 /*HBCU COLLEGE TOUR*/
 Route::post('/contact_post', [HomeController::class, 'contact_post'])->name('contact_post');
